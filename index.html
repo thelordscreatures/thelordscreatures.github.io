@@ -1,134 +1,22 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Lord's Creatures | Dog Grooming</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   
   <style>
-    /* Mobile-first Form Styling */
-  .booking-form-v2 {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #E8EFE6; /* Muted Sage Light */
-    padding: 24px 16px;
-    border-radius: 16px;
-    border: 1px solid #C2D1BC;
-    font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-
-  .form-group {
-    margin-bottom: 20px;
-  }
-
-  .form-group label.field-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #526B4A;
-    font-size: 1.05rem;
-  }
-
-  .form-group input[type="text"],
-  .form-group input[type="tel"],
-  .form-group input[type="number"],
-  .form-group textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #DDA3AB;
-    border-radius: 10px;
-    font-size: 1rem; /* Prevents auto-zoom on iOS Safari */
-    background-color: #FFFDF9;
-    color: #3D3535;
-    box-sizing: border-box;
-    -webkit-appearance: none;
-  }
-
-  .form-group input:focus,
-  .form-group textarea:focus {
-    outline: 2px solid #C25B68;
-    border-color: transparent;
-  }
-
-  /* Two-column layout for small fields on desktop, stacked on mobile */
-  .grid-2col {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  @media (min-width: 480px) {
-    .grid-2col {
-      flex-direction: row;
-    }
-    .grid-2col .form-group {
-      flex: 1;
-    }
-  }
-
-  /* Tap-friendly Checkboxes */
-  .checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .checkbox-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    background: #FFFDF9;
-    padding: 12px 14px;
-    border-radius: 10px;
-    border: 1px solid #DDA3AB;
-    cursor: pointer;
-    touch-action: manipulation;
-  }
-
-  .checkbox-card input[type="checkbox"] {
-    width: 22px;
-    height: 22px;
-    margin-top: 2px;
-    accent-color: #C25B68; /* Matches Dusty Rose brand color */
-    flex-shrink: 0;
-  }
-
-  .checkbox-card-text {
-    font-size: 0.95rem;
-    color: #3D3535;
-    line-height: 1.4;
-  }
-
-  /* Full-width Touch Button */
-  button.submit-btn-v2 {
-    width: 100%;
-    background-color: #C25B68;
-    color: white;
-    border: none;
-    padding: 16px;
-    font-size: 1.2rem;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: 600;
-    margin-top: 10px;
-    box-shadow: 0 4px 10px rgba(194, 91, 104, 0.25);
-    touch-action: manipulation;
-  }
-
-  button.submit-btn-v2:active {
-    background-color: #A34854;
-    transform: scale(0.98);
-  }
-    
     :root {
       --rose: #C25B68;
+      --rose-dark: #A34854;
       --light-rose: #F4D3D8;
       --cream: #FFFDF9;
       --sage: #526B4A;
       --sage-light: #E8EFE6;
+      --sage-border: #C2D1BC;
       --dark-text: #3D3535;
       --border-color: #DDA3AB;
     }
@@ -142,12 +30,12 @@
     body {
       background-color: var(--cream);
       color: var(--dark-text);
-      font-family: 'Quicksand', sans-serif;
+      font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.6;
     }
 
     h1, h2, h3, .serif {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Playfair Display', Georgia, serif;
     }
 
     /* Container Frame */
@@ -157,7 +45,7 @@
       border: 3px double var(--border-color);
       padding: 20px;
       background: var(--cream);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     }
 
     /* Header */
@@ -212,7 +100,7 @@
       color: var(--sage);
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.3s;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
@@ -231,10 +119,33 @@
       margin-bottom: 25px;
     }
 
-    .section-title::before, .section-title::after {
+    .section-title::before, 
+    .section-title::after {
       content: " ♥ ";
       color: var(--sage);
       font-size: 1.2rem;
+    }
+
+    /* Direct Contact Banner */
+    .direct-contact {
+      text-align: center;
+      background: var(--light-rose);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .direct-contact p {
+      color: var(--sage);
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .direct-contact a {
+      color: var(--rose);
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-decoration: none;
     }
 
     /* Services Grid */
@@ -249,7 +160,7 @@
       background: var(--sage-light);
       padding: 20px;
       border-radius: 12px;
-      border: 1px solid #C2D1BC;
+      border: 1px solid var(--sage-border);
     }
 
     .service-card h3 {
@@ -289,7 +200,6 @@
       border: 1px solid var(--border-color);
       padding: 20px;
       border-radius: 10px;
-      position: relative;
     }
 
     .testimonial-card p {
@@ -298,86 +208,168 @@
     }
 
     .client-name {
-      font-weight: bold;
+      font-weight: 700;
       color: var(--rose);
       text-align: right;
     }
 
-    /* Appointment Form */
-    .booking-form {
+    /* Booking Form */
+    .booking-form-v2 {
       max-width: 600px;
       margin: 0 auto;
       background: var(--sage-light);
-      padding: 30px;
-      border-radius: 15px;
-      border: 1px solid #C2D1BC;
+      padding: 24px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--sage-border);
     }
 
     .form-group {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
-    .form-group label {
+    .form-group label.field-label {
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
       font-weight: 600;
       color: var(--sage);
+      font-size: 1.05rem;
     }
 
-    .form-group input, 
-    .form-group select, 
+    .form-group input[type="text"],
+    .form-group input[type="tel"],
+    .form-group input[type="number"],
     .form-group textarea {
       width: 100%;
-      padding: 10px;
+      padding: 14px;
       border: 1px solid var(--border-color);
-      border-radius: 6px;
+      border-radius: 10px;
+      font-size: 1rem;
       font-family: inherit;
+      background-color: var(--cream);
+      color: var(--dark-text);
+      box-sizing: border-box;
+      -webkit-appearance: none;
     }
 
-    button.submit-btn {
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: 2px solid var(--rose);
+      border-color: transparent;
+    }
+
+    .grid-2col {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    @media (min-width: 480px) {
+      .grid-2col {
+        flex-direction: row;
+      }
+      .grid-2col .form-group {
+        flex: 1;
+        margin-bottom: 0;
+      }
+    }
+
+    /* Checkboxes */
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .checkbox-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--cream);
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .checkbox-card input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+      accent-color: var(--rose);
+      flex-shrink: 0;
+    }
+
+    .checkbox-card-text {
+      font-size: 0.95rem;
+      color: var(--dark-text);
+      line-height: 1.4;
+    }
+
+    .checkbox-card-text small {
+      color: #666;
+    }
+
+    button.submit-btn-v2 {
       width: 100%;
       background-color: var(--rose);
-      color: white;
+      color: #FFFFFF;
       border: none;
-      padding: 12px;
-      font-size: 1.1rem;
-      border-radius: 25px;
+      padding: 16px;
+      font-size: 1.2rem;
+      border-radius: 30px;
       cursor: pointer;
       font-weight: 600;
-      transition: background 0.3s;
+      font-family: inherit;
+      margin-top: 10px;
+      box-shadow: 0 4px 10px rgba(194, 91, 104, 0.25);
+      touch-action: manipulation;
+      transition: background-color 0.2s ease, transform 0.1s ease;
     }
 
-    button.submit-btn:hover {
-      background-color: #A34854;
-    }
-
-    /* Direct Contact Banner */
-    .direct-contact {
-      text-align: center;
-      background: var(--light-rose);
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 30px;
-    }
-
-    .direct-contact a {
-      color: var(--rose);
-      font-size: 1.4rem;
-      font-weight: bold;
-      text-decoration: none;
+    button.submit-btn-v2:active {
+      background-color: var(--rose-dark);
+      transform: scale(0.98);
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding-top: 20px;
+      padding-top: 25px;
+      margin-top: 20px;
       border-top: 1px dashed var(--border-color);
       color: var(--sage);
       font-size: 0.9rem;
     }
 
     footer p {
-      margin-bottom: 5px;
+      margin-bottom: 8px;
+    }
+
+    footer a {
+      color: var(--rose);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 8px 16px;
+      background-color: var(--sage);
+      color: #FFFFFF !important;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #3F5339;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -397,13 +389,13 @@
     <nav>
       <a href="#services">Services</a>
       <a href="#gallery">Gallery</a>
-      <a href="testimonials.html">Testimonials</a>
+      <a href="#testimonials">Testimonials</a>
       <a href="#book">Book Appointment</a>
     </nav>
 
     <!-- Direct Call Banner -->
     <div class="direct-contact">
-      <p style="color: var(--sage); font-weight: 600;">Call or Text Nevena to Schedule:</p>
+      <p>Call or Text Nevena to Schedule:</p>
       <a href="tel:9498915032">(949) 891-5032</a>
     </div>
 
@@ -413,10 +405,10 @@
       <div class="services-grid">
         <div class="service-card">
           <h3>Full Grooming 🐾</h3>
-          <p>Copmlete bath, blow-dry, haircut, style and total pampering with cologne and 🎀 bows or a bandanna.</p>
+          <p>Complete bath, blow-dry, haircut, style and total pampering with cologne and 🎀 bows or a bandanna.</p>
         </div>
         <div class="service-card">
-          <h3>Bath & Brush 🐾</h3>
+          <h3>Bath &amp; Brush 🐾</h3>
           <p>Deep clean, blow dry, and thorough brush-out. With cute 🎀 bows and bandanna.</p>
         </div>
         <div class="service-card">
@@ -455,130 +447,132 @@
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <p>"Nevena is so gentle with my nervous doodle! She came out looking adorable and completely stress-free."</p>
-          <div class="client-name">— Sarah M. & Bella</div>
+          <div class="client-name">— Sarah M. &amp; Bella</div>
         </div>
         <div class="testimonial-card">
           <p>"The best grooming service in town. Truly compassionate, professional, and trusted!"</p>
-
-          <div class="client-name">— David K. & Max</div>
+          <div class="client-name">— David K. &amp; Max</div>
         </div>
       </div>
     </section>
 
-    <!-- Booking Form -->
-   <div class="booking-form-v2">
-  <form action="https://formspree.io/f/mdendqjp" method="POST">
-    
-    <!-- Client Info -->
-    <div class="form-group">
-      <label class="field-label" for="owner_name">Owner's Name</label>
-      <input type="text" id="owner_name" name="Owner Name" required placeholder="Jane Doe">
-    </div>
+    <!-- Booking Form Section -->
+    <section id="book">
+      <h2 class="section-title">Request Appointment</h2>
+      <div class="booking-form-v2">
+        <form action="https://formspree.io/f/mdendqjp" method="POST">
+          
+          <!-- Client Info -->
+          <div class="form-group">
+            <label class="field-label" for="owner_name">Owner's Name</label>
+            <input type="text" id="owner_name" name="Owner Name" required placeholder="Jane Doe">
+          </div>
 
-    <div class="form-group">
-      <label class="field-label" for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="Phone Number" required placeholder="(949) 891-5032">
-    </div>
+          <div class="form-group">
+            <label class="field-label" for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="Phone Number" required placeholder="(949) 891-5032">
+          </div>
 
-    <!-- Dog Profile -->
-    <div class="form-group">
-      <label class="field-label" for="dog_info">Dog's Name & Breed</label>
-      <input type="text" id="dog_info" name="Dog Name & Breed" required placeholder="Teddy (Goldendoodle)">
-    </div>
+          <!-- Dog Profile -->
+          <div class="form-group">
+            <label class="field-label" for="dog_info">Dog's Name &amp; Breed</label>
+            <input type="text" id="dog_info" name="Dog Name &amp; Breed" required placeholder="Teddy (Goldendoodle)">
+          </div>
 
-    <div class="grid-2col">
-      <div class="form-group">
-        <label class="field-label" for="weight">Weight (lbs)</label>
-        <input type="number" id="weight" name="Dog Weight (lbs)" required placeholder="25" pattern="[0-9]*">
+          <div class="grid-2col form-group">
+            <div class="form-group">
+              <label class="field-label" for="weight">Weight (lbs)</label>
+              <input type="number" id="weight" name="Dog Weight (lbs)" required placeholder="25" pattern="[0-9]*">
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="age">Dog's Age</label>
+              <input type="text" id="age" name="Dog Age" required placeholder="3 yrs / 6 mos">
+            </div>
+          </div>
+
+          <!-- Checkbox Services -->
+          <div class="form-group">
+            <label class="field-label">Select Requested Services:</label>
+            <div class="checkbox-group">
+              
+              <label class="checkbox-card">
+                <input type="checkbox" name="Services" value="Full Grooming">
+                <span class="checkbox-card-text">
+                  <strong>Full Grooming</strong><br>
+                  <small>Includes bath, nail care, haircut &amp; style, bow/bandanna and cologne.</small>
+                </span>
+              </label>
+
+              <label class="checkbox-card">
+                <input type="checkbox" name="Services" value="Bath &amp; Brush Only">
+                <span class="checkbox-card-text">
+                  <strong>Bath &amp; Brush Only</strong>
+                </span>
+              </label>
+
+              <label class="checkbox-card">
+                <input type="checkbox" name="Services" value="Deep Clean">
+                <span class="checkbox-card-text">
+                  <strong>Deep Clean</strong><br>
+                  <small>Blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads.</small>
+                </span>
+              </label>
+
+              <label class="checkbox-card">
+                <input type="checkbox" name="Services" value="Deshedding Treatment">
+                <span class="checkbox-card-text">
+                  <strong>Deshedding Treatment</strong><br>
+                  <small>Reduces undercoat &amp; shedding including deep conditioning + extra brushing.</small>
+                </span>
+              </label>
+
+              <label class="checkbox-card">
+                <input type="checkbox" name="Services" value="Teeth Brushing">
+                <span class="checkbox-card-text">
+                  <strong>Teeth Brushing</strong> (Optional mouth wash)
+                </span>
+              </label>
+
+              <label class="checkbox-card">
+                <input type="checkbox" name="Services" value="Ear Plucking">
+                <span class="checkbox-card-text">
+                  <strong>Ear Plucking</strong> (Remove excess hair in ear canal)
+                </span>
+              </label>
+
+              <label class="checkbox-card">
+                <input type="checkbox" name="Services" value="Full-body Mud Mask">
+                <span class="checkbox-card-text">
+                  <strong>Full-body Mud Mask</strong><br>
+                  <small>Extensive conditioning &amp; moisturizing to enhance coat &amp; skin care.</small>
+                </span>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- Grooming History & Questions -->
+          <div class="form-group">
+            <label class="field-label" for="history">When was last grooming / is dog matted?</label>
+            <textarea id="history" name="Last Groom &amp; Matting Status" rows="3" placeholder="e.g. Last groomed 2 months ago, slight matting on ears..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="special_needs">Special Needs or Aggression Details</label>
+            <textarea id="special_needs" name="Special Needs or Aggression" rows="3" placeholder="e.g. Sensitive paws, gets nervous around blow dryers, arthritis..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn-v2">Request Appointment</button>
+        </form>
       </div>
-
-      <div class="form-group">
-        <label class="field-label" for="age">Dog's Age</label>
-        <input type="text" id="age" name="Dog Age" required placeholder="3 yrs / 6 mos">
-      </div>
-    </div>
-
-    <!-- Checkbox Services -->
-    <div class="form-group">
-      <label class="field-label">Select Requested Services:</label>
-      <div class="checkbox-group">
-        
-        <label class="checkbox-card">
-          <input type="checkbox" name="Services" value="Full Grooming">
-          <div class="checkbox-card-text">
-            <strong>Full Grooming</strong><br>
-            <small style="color: #666;">Includes bath, nail care, haircut & style, bow/bandanna and cologne.</small>
-          </div>
-        </label>
-
-        <label class="checkbox-card">
-          <input type="checkbox" name="Services" value="Bath & Brush Only">
-          <div class="checkbox-card-text">
-            <strong>Bath & Brush Only</strong>
-          </div>
-        </label>
-
-        <label class="checkbox-card">
-          <input type="checkbox" name="Services" value="Deep Clean">
-          <div class="checkbox-card-text">
-            <strong>Deep Clean</strong><br>
-            <small style="color: #666;">Blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads.</small>
-          </div>
-        </label>
-
-        <label class="checkbox-card">
-          <input type="checkbox" name="Services" value="Deshedding Treatment">
-          <div class="checkbox-card-text">
-            <strong>Deshedding Treatment</strong><br>
-            <small style="color: #666;">Reduces undercoat & shedding including deep conditioning + extra brushing.</small>
-          </div>
-        </label>
-
-        <label class="checkbox-card">
-          <input type="checkbox" name="Services" value="Teeth Brushing">
-          <div class="checkbox-card-text">
-            <strong>Teeth Brushing</strong> (Optional mouth wash)
-          </div>
-        </label>
-
-        <label class="checkbox-card">
-          <input type="checkbox" name="Services" value="Ear Plucking">
-          <div class="checkbox-card-text">
-            <strong>Ear Plucking</strong> (Remove excess hair in ear canal)
-          </div>
-        </label>
-
-        <label class="checkbox-card">
-          <input type="checkbox" name="Services" value="Full-body Mud Mask">
-          <div class="checkbox-card-text">
-            <strong>Full-body Mud Mask</strong><br>
-            <small style="color: #666;">Extensive conditioning & moisturizing to enhance coat & skin care.</small>
-          </div>
-        </label>
-
-      </div>
-    </div>
-
-    <!-- Grooming History & Questions -->
-    <div class="form-group">
-      <label class="field-label" for="history">When was last grooming / is dog matted?</label>
-      <textarea id="history" name="Last Groom & Matting Status" rows="3" placeholder="e.g. Last groomed 2 months ago, slight matting on ears..."></textarea>
-    </div>
-
-    <div class="form-group">
-      <label class="field-label" for="special_needs">Special Needs or Aggression Details</label>
-      <textarea id="special_needs" name="Special Needs or Aggression" rows="3" placeholder="e.g. Sensitive paws, gets nervous around blow dryers, arthritis..."></textarea>
-    </div>
-
-    <button type="submit" class="submit-btn-v2">Request Appointment</button>
-  </form>
-</div>
+    </section>
 
     <!-- Footer -->
     <footer>
       <p><strong>Professional ♥ Compassionate ♥ Trusted</strong></p>
-      <p>Groomer: Nevena | Email: thelordscreatures@gmail.com | Instagram: <a href='https://www.instagram.com/thelordscreatures/'>@thelordscreatures</a></p>
-      <p style="margin-top: 10px;">Thank you for supporting small business!</p>
+      <p>Groomer: Nevena | Email: <a href="mailto:thelordscreatures@gmail.com">thelordscreatures@gmail.com</a> | Instagram: <a href="https://www.instagram.com/thelordscreatures/" target="_blank" rel="noopener">@thelordscreatures</a></p>
+      <p>Thank you for supporting small business!</p>
       <a href="misc/contact.vcf" class="cta-button" download>
         📇 Save Nevena to Contacts
       </a>
