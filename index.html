@@ -355,33 +355,93 @@
     <section id="book">
       <h2 class="section-title">Schedule an Appointment</h2>
       <div class="booking-form">
-        <form action="https://formspree.io/f/hello@thelordscreatures.com" method="POST">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required placeholder="Jane Doe">
+      <form action="https://formspree.io/f/mdendqjp" method="POST">
+        
+        <!-- Client Contact Information -->
+        <div class="form-group">
+          <label for="name">Owner's Name</label>
+          <input type="text" id="name" name="Owner Name" required placeholder="Jane Doe">
+        </div>
+      
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="Phone Number" required placeholder="(949) 891-5032">
+        </div>
+      
+        <!-- Dog Profile (Crucial for Contact Setup) -->
+        <div class="form-group">
+          <label for="pet_name">Dog's Name & Breed</label>
+          <input type="text" id="pet_name" name="Dog Name & Breed" required placeholder="Teddy (Goldendoodle)">
+        </div>
+      
+        <div style="display: flex; gap: 15px;">
+          <div class="form-group" style="flex: 1;">
+            <label for="weight">Dog's Weight (lbs)</label>
+            <input type="text" id="weight" name="Dog Weight" required placeholder="e.g. 25 lbs">
           </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required placeholder="(949) 891-5032">
+      
+          <div class="form-group" style="flex: 1;">
+            <label for="age">Dog's Age</label>
+            <input type="text" id="age" name="Dog Age" required placeholder="e.g. 3 years / 6 months">
           </div>
-          <div class="form-group">
-            <label for="pet">Pet's Name & Breed</label>
-            <input type="text" id="pet" name="pet_info" placeholder="Teddy (Goldendoodle)">
+        </div>
+      
+        <!-- Services Selection (Checkboxes) -->
+        <div class="form-group">
+          <label style="margin-bottom: 10px;">Select Requested Services:</label>
+          
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.95rem;">
+            <label style="font-weight: normal; cursor: pointer;">
+              <input type="checkbox" name="Services" value="Full Grooming"> 
+              <strong>Full Grooming</strong> (Bath, nail care, haircut & style, bow/bandanna, cologne)
+            </label>
+      
+            <label style="font-weight: normal; cursor: pointer;">
+              <input type="checkbox" name="Services" value="Bath & Brush Only"> 
+              <strong>Bath & Brush Only</strong>
+            </label>
+      
+            <label style="font-weight: normal; cursor: pointer;">
+              <input type="checkbox" name="Services" value="Deep Clean"> 
+              <strong>Deep Clean</strong> (Blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads)
+            </label>
+      
+            <label style="font-weight: normal; cursor: pointer;">
+              <input type="checkbox" name="Services" value="Deshedding Treatment"> 
+              <strong>Deshedding Treatment</strong> (Deep conditioning + extra brushing to reduce undercoat)
+            </label>
+      
+            <label style="font-weight: normal; cursor: pointer;">
+              <input type="checkbox" name="Services" value="Teeth Brushing"> 
+              <strong>Teeth Brushing</strong> (Optional mouth wash)
+            </label>
+      
+            <label style="font-weight: normal; cursor: pointer;">
+              <input type="checkbox" name="Services" value="Ear Plucking"> 
+              <strong>Ear Plucking</strong> (Remove excess hair in ear canal)
+            </label>
+      
+            <label style="font-weight: normal; cursor: pointer;">
+              <input type="checkbox" name="Services" value="Full-body Mud Mask"> 
+              <strong>Full-body Mud Mask</strong> (Extensive conditioning & moisturizing for coat & skin)
+            </label>
           </div>
-          <div class="form-group">
-            <label for="service">Requested Service</label>
-            <select id="service" name="service">
-              <option value="full">Full Grooming</option>
-              <option value="bath">Bath & Brush</option>
-              <option value="nails">Nail Care / Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="notes">Preferred Date / Special Notes</label>
-            <textarea id="notes" name="notes" rows="3" placeholder="Let us know your availability..."></textarea>
-          </div>
-          <button type="submit" class="submit-btn">Request Appointment</button>
-        </form>
+        </div>
+      
+        <!-- Coat Condition & Grooming History -->
+        <div class="form-group">
+          <label for="history">When was their last grooming? Is the dog currently matted?</label>
+          <textarea id="history" name="Last Groom / Matting Status" rows="2" placeholder="e.g., Last groomed 2 months ago, slight matting behind ears..."></textarea>
+        </div>
+      
+        <!-- Special Needs & Behavioral Alerts -->
+        <div class="form-group">
+          <label for="special_needs">Special Needs, Medical Conditions, or Aggression Details?</label>
+          <textarea id="special_needs" name="Special Needs or Aggression" rows="2" placeholder="e.g., Sensitive ears, nervous around blow dryer, arthritis in back legs..."></textarea>
+        </div>
+      
+        <button type="submit" class="submit-btn">Request Appointment</button>
+      </form>
       </div>
     </section>
 
