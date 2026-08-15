@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Lord's Creatures | Dog Grooming</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --rose: #C25B68;
+      --light-rose: #F4D3D8;
+      --cream: #FFFDF9;
+      --sage: #526B4A;
+      --sage-light: #E8EFE6;
+      --dark-text: #3D3535;
+      --border-color: #DDA3AB;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--dark-text);
+      font-family: 'Quicksand', sans-serif;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Container Frame */
+    .page-frame {
+      max-width: 1000px;
+      margin: 20px auto;
+      border: 3px double var(--border-color);
+      padding: 20px;
+      background: var(--cream);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .tagline {
+      color: var(--sage);
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      color: var(--rose);
+      font-size: 3rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .sub-title {
+      background-color: var(--light-rose);
+      color: var(--rose);
+      display: inline-block;
+      padding: 5px 25px;
+      border-radius: 20px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .motto {
+      font-style: italic;
+      color: var(--sage);
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 30px;
+    }
+
+    nav a {
+      color: var(--sage);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--rose);
+    }
+
+    /* Sections */
+    section {
+      padding: 30px 10px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--rose);
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    .section-title::before, .section-title::after {
+      content: " ♥ ";
+      color: var(--sage);
+      font-size: 1.2rem;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      text-align: center;
+    }
+
+    .service-card {
+      background: var(--sage-light);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #C2D1BC;
+    }
+
+    .service-card h3 {
+      color: var(--sage);
+      margin-bottom: 8px;
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 200px;
+      background-color: #EADCDA;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--rose);
+      border: 2px solid var(--light-rose);
+      font-style: italic;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      background: #FFF;
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .client-name {
+      font-weight: bold;
+      color: var(--rose);
+      text-align: right;
+    }
+
+    /* Appointment Form */
+    .booking-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--sage-light);
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid #C2D1BC;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: var(--sage);
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-family: inherit;
+    }
+
+    button.submit-btn {
+      width: 100%;
+      background-color: var(--rose);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1.1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    button.submit-btn:hover {
+      background-color: #A34854;
+    }
+
+    /* Direct Contact Banner */
+    .direct-contact {
+      text-align: center;
+      background: var(--light-rose);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .direct-contact a {
+      color: var(--rose);
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px dashed var(--border-color);
+      color: var(--sage);
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-frame">
+    
+    <!-- Header -->
+    <header>
+      <div class="tagline">A little care goes a long way.</div>
+      <h1>The Lord's Creatures</h1>
+      <div class="sub-title">DOG GROOMING</div>
+      <p class="motto">Pups groomed with love and skill.</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#book">Book Appointment</a>
+    </nav>
+
+    <!-- Direct Call Banner -->
+    <div class="direct-contact">
+      <p style="color: var(--sage); font-weight: 600;">Call or Text Nevena to Schedule:</p>
+      <a href="tel:9498915032">(949) 891-5032</a>
+    </div>
+
+    <!-- Services -->
+    <section id="services">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Full Grooming 🐾</h3>
+          <p>Complete bath, haircut, style, and total pampering.</p>
+        </div>
+        <div class="service-card">
+          <h3>Bath & Brush 🐾</h3>
+          <p>Deep clean, blow dry, and thorough brush-out.</p>
+        </div>
+        <div class="service-card">
+          <h3>Nail Care 🐾</h3>
+          <p>Safe nail trimming and smooth filing.</p>
+        </div>
+        <div class="service-card">
+          <h3>Deshedding 🐾</h3>
+          <p>Specialized treatment to reduce loose fur.</p>
+        </div>
+        <div class="service-card">
+          <h3>Teeth Brushing 🐾</h3>
+          <p>Gentle care for a fresh, healthy smile.</p>
+        </div>
+        <div class="service-card">
+          <h3>Ear Cleaning 🐾</h3>
+          <p>Gentle, thorough ear sanitizing and care.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+      <h2 class="section-title">Happy Pups Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-img">Photo Placeholder 1</div>
+        <div class="gallery-img">Photo Placeholder 2</div>
+        <div class="gallery-img">Photo Placeholder 3</div>
+        <div class="gallery-img">Photo Placeholder 4</div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+      <h2 class="section-title">Kind Words</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>"Nevena is so gentle with my nervous doodle! She came out looking adorable and completely stress-free."</p>
+          <div class="client-name">— Sarah M. & Bella</div>
+        </div>
+        <div class="testimonial-card">
+          <p>"The best grooming service in town. Truly compassionate, professional, and trusted!"</p>
+
+          <div class="client-name">— David K. & Max</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section id="book">
+      <h2 class="section-title">Schedule an Appointment</h2>
+      <div class="booking-form">
+        <form action="https://formspree.io/f/hello@thelordscreatures.com" method="POST">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="Jane Doe">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required placeholder="(949) 891-5032">
+          </div>
+          <div class="form-group">
+            <label for="pet">Pet's Name & Breed</label>
+            <input type="text" id="pet" name="pet_info" placeholder="Teddy (Goldendoodle)">
+          </div>
+          <div class="form-group">
+            <label for="service">Requested Service</label>
+            <select id="service" name="service">
+              <option value="full">Full Grooming</option>
+              <option value="bath">Bath & Brush</option>
+              <option value="nails">Nail Care / Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="notes">Preferred Date / Special Notes</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Let us know your availability..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Request Appointment</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p><strong>Professional ♥ Compassionate ♥ Trusted</strong></p>
+      <p>Groomer: Nevena | Email: hello@thelordscreatures.com | Instagram: @thelordscreatures.grooming</p>
+      <p style="margin-top: 10px;">Thank you for supporting small business!</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
