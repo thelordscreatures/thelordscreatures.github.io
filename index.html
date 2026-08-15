@@ -238,6 +238,8 @@
     .form-group input[type="text"],
     .form-group input[type="tel"],
     .form-group input[type="number"],
+    .form-group input[type="date"],
+    .form-group select,
     .form-group textarea {
       width: 100%;
       padding: 14px;
@@ -252,6 +254,7 @@
     }
 
     .form-group input:focus,
+    .form-group select:focus,
     .form-group textarea:focus {
       outline: 2px solid var(--rose);
       border-color: transparent;
@@ -488,6 +491,24 @@
             <div class="form-group">
               <label class="field-label" for="age">Dog's Age</label>
               <input type="text" id="age" name="Dog Age" required placeholder="3 yrs / 6 mos">
+            </div>
+          </div>
+
+          <!-- Scheduling Preference -->
+          <div class="grid-2col form-group">
+            <div class="form-group">
+              <label class="field-label" for="pref_date">Preferred Date</label>
+              <input type="date" id="pref_date" name="Preferred Date" required>
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="pref_time">Preferred Time Window</label>
+              <select id="pref_time" name="Preferred Time Window" required>
+                <option value="" disabled selected>Select a time window</option>
+                <option value="Morning (8am - 12pm)">Morning (8am - 12pm)</option>
+                <option value="Afternoon (12pm - 4pm)">Afternoon (12pm - 4pm)</option>
+                <option value="Flexible / Any Time">Flexible / Any Time</option>
+              </select>
             </div>
           </div>
 
