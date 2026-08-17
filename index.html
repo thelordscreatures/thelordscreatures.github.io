@@ -469,47 +469,57 @@
 <section id="book">
   <h2 class="section-title">Request Appointment</h2>
   <div class="booking-form-v2">
-    <form action="https://formspree.io/f/mdendqjp" method="POST">
+    <!-- Updated Form Target -->
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSdO.../formResponse" method="POST" target="hidden_iframe" onsubmit="handleFormSubmit(event)">
       
       <!-- Client Info -->
       <div class="form-group">
         <label class="field-label" for="owner_name">Owner's Name</label>
-        <input type="text" id="owner_name" name="Owner Name" required placeholder="Jane Doe">
+        <input type="text" id="owner_name" name="entry.216716512" required placeholder="Jane Doe">
       </div>
 
       <div class="form-group">
         <label class="field-label" for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="Phone Number" required placeholder="(949) 891-5032">
+        <input type="tel" id="phone" name="entry.453506455" required placeholder="(949) 891-5032">
+      </div>
+
+      <div class="form-group">
+        <label class="field-label" for="email">Email Address</label>
+        <input type="email" id="email" name="entry.2070209821" placeholder="jane@example.com">
       </div>
 
       <!-- Dog Profile -->
       <div class="form-group">
         <label class="field-label" for="dog_info">Dog's Name &amp; Breed</label>
-        <input type="text" id="dog_info" name="Dog Name &amp; Breed" required placeholder="Teddy (Goldendoodle)">
+        <input type="text" id="dog_info" name="entry.2097919179" required placeholder="Teddy (Goldendoodle)">
       </div>
 
       <div class="grid-2col form-group">
         <div class="form-group">
           <label class="field-label" for="weight">Weight (lbs)</label>
-          <input type="number" id="weight" name="Dog Weight (lbs)" required placeholder="25" pattern="[0-9]*">
+          <input type="number" id="weight" name="entry.992750075" required placeholder="25">
         </div>
 
         <div class="form-group">
           <label class="field-label" for="age">Dog's Age</label>
-          <input type="text" id="age" name="Dog Age" required placeholder="3 yrs / 6 mos">
+          <input type="text" id="age" name="entry.747309699" placeholder="3 yrs / 6 mos">
         </div>
       </div>
 
-      <!-- Preferred Date & Time (Captured in Formspree Email) -->
+      <!-- Preferred Date & Time -->
       <div class="grid-2col form-group">
         <div class="form-group">
           <label class="field-label" for="pref_date">Preferred Date</label>
-          <input type="date" id="pref_date" name="Preferred Date" required>
+          <input type="date" id="pref_date" required>
+          <!-- Hidden inputs for Google Forms Date structure -->
+          <input type="hidden" id="date_year" name="entry.1490817868_year">
+          <input type="hidden" id="date_month" name="entry.1490817868_month">
+          <input type="hidden" id="date_day" name="entry.1490817868_day">
         </div>
 
         <div class="form-group">
           <label class="field-label" for="pref_time">Preferred Time Window</label>
-          <select id="pref_time" name="Preferred Time Window" required>
+          <select id="pref_time" name="entry.1975097107" required>
             <option value="" disabled selected>Select a time window</option>
             <option value="Morning (8am - 12pm)">Morning (8am - 12pm)</option>
             <option value="Afternoon (12pm - 4pm)">Afternoon (12pm - 4pm)</option>
@@ -518,13 +528,13 @@
         </div>
       </div>
 
-      <!-- Checkbox Services -->
+      <!-- Checkbox Services (All checkboxes match Google Form options exactly) -->
       <div class="form-group">
         <label class="field-label">Select Requested Services:</label>
         <div class="checkbox-group">
           
           <label class="checkbox-card">
-            <input type="checkbox" name="Services" value="Full Grooming">
+            <input type="checkbox" name="entry.487565551" value="*Full Groom">
             <span class="checkbox-card-text">
               <strong>Full Grooming</strong><br>
               <small>Includes bath, nail care, haircut &amp; style, bow/bandanna and cologne.</small>
@@ -532,14 +542,14 @@
           </label>
 
           <label class="checkbox-card">
-            <input type="checkbox" name="Services" value="Bath &amp; Brush Only">
+            <input type="checkbox" name="entry.487565551" value="*Bath and *Brush">
             <span class="checkbox-card-text">
               <strong>Bath &amp; Brush Only</strong>
             </span>
           </label>
 
           <label class="checkbox-card">
-            <input type="checkbox" name="Services" value="Deep Clean">
+            <input type="checkbox" name="entry.487565551" value="*Deep Clean">
             <span class="checkbox-card-text">
               <strong>Deep Clean</strong><br>
               <small>Blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads.</small>
@@ -547,7 +557,7 @@
           </label>
 
           <label class="checkbox-card">
-            <input type="checkbox" name="Services" value="Deshedding Treatment">
+            <input type="checkbox" name="entry.487565551" value="*Deshedding Treatment">
             <span class="checkbox-card-text">
               <strong>Deshedding Treatment</strong><br>
               <small>Reduces undercoat &amp; shedding including deep conditioning + extra brushing.</small>
@@ -555,24 +565,23 @@
           </label>
 
           <label class="checkbox-card">
-            <input type="checkbox" name="Services" value="Teeth Brushing">
+            <input type="checkbox" name="entry.487565551" value="*Pluck Ears">
             <span class="checkbox-card-text">
-              <strong>Teeth Brushing</strong> (Optional mouth wash)
+              <strong>Ear Plucking</strong>
             </span>
           </label>
 
           <label class="checkbox-card">
-            <input type="checkbox" name="Services" value="Ear Plucking">
+            <input type="checkbox" name="entry.487565551" value="*Brush Teeth">
             <span class="checkbox-card-text">
-              <strong>Ear Plucking</strong> (Remove excess hair in ear canal)
+              <strong>Teeth Brushing</strong> ($10)
             </span>
           </label>
 
           <label class="checkbox-card">
-            <input type="checkbox" name="Services" value="Full-body Mud Mask">
+            <input type="checkbox" name="entry.487565551" value="*Mouth Wash">
             <span class="checkbox-card-text">
-              <strong>Full-body Mud Mask</strong><br>
-              <small>Extensive conditioning &amp; moisturizing to enhance coat &amp; skin care.</small>
+              <strong>Mouth Wash</strong>
             </span>
           </label>
 
@@ -582,18 +591,37 @@
       <!-- Grooming History & Questions -->
       <div class="form-group">
         <label class="field-label" for="history">When was last grooming / is dog matted?</label>
-        <textarea id="history" name="Last Groom &amp; Matting Status" rows="3" placeholder="e.g. Last groomed 2 months ago, slight matting on ears..."></textarea>
+        <textarea id="history" name="entry.1964484264" rows="3" placeholder="e.g. Last groomed 2 months ago, slight matting on ears..."></textarea>
       </div>
 
       <div class="form-group">
         <label class="field-label" for="special_needs">Special Needs or Aggression Details</label>
-        <textarea id="special_needs" name="Special Needs or Aggression" rows="3" placeholder="e.g. Sensitive paws, gets nervous around blow dryers, arthritis..."></textarea>
+        <textarea id="special_needs" name="entry.1399637306" rows="3" placeholder="e.g. Sensitive paws, gets nervous around blow dryers, arthritis..."></textarea>
       </div>
 
       <button type="submit" class="submit-btn-v2">Request Appointment</button>
     </form>
+
+    <!-- Invisible iframe target -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Appointment request submitted successfully!'); }"></iframe>
   </div>
 </section>
+
+<script>
+  var submitted = false;
+
+  function handleFormSubmit(event) {
+    // Break standard HTML date picker (YYYY-MM-DD) into Google's required year, month, and day hidden fields
+    const dateVal = document.getElementById('pref_date').value;
+    if (dateVal) {
+      const parts = dateVal.split('-');
+      document.getElementById('date_year').value = parts[0];
+      document.getElementById('date_month').value = parts[1];
+      document.getElementById('date_day').value = parts[2];
+    }
+    submitted = true;
+  }
+</script>
     
     <!-- Footer -->
     <footer>
