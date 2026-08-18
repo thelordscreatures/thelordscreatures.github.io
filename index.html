@@ -433,6 +433,37 @@
   cursor: not-allowed;
   transition: opacity 0.2s ease;
 }
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+
+/* Brand Text Styling */
+.footer-logo-brand {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.05em;
+}
+
+.brand-green {
+  color: #8EA659; /* Exact green from photo */
+}
+
+.brand-pink {
+  color: #F38B9B; /* Exact pink from photo */
+}
+
+.footer-logo-brand:hover {
+  opacity: 0.85;
+}
+
+/* Optional styling for email link matching brand green */
+.brand-link {
+  color: #8EA659;
+  text-decoration: none;
+}
+
+.brand-link:hover {
+  text-decoration: underline;
+}
   </style>
 </head>
 <body>
@@ -737,15 +768,21 @@ function validateServices() {
 document.addEventListener('DOMContentLoaded', validateServices);
 </script>
     
-    <!-- Footer -->
-    <footer>
-      <p><strong>Professional ♥ Compassionate ♥ Trusted</strong></p>
-      <p>Groomer: Nevena | Email: <a href="mailto:thelordscreatures@gmail.com">thelordscreatures@gmail.com</a> | Instagram: <a href="https://www.instagram.com/thelordscreatures/" target="_blank" rel="noopener">@thelordscreatures</a></p>
-      <p>Thank you for supporting small business!</p>
-      <a href="misc/contact.vcf" class="cta-button" download>
-        📇 Save Nevena to Contacts
-      </a>
-    </footer>
+<footer>
+  <p><strong>Professional ♥ Compassionate ♥ Trusted</strong></p>
+  <p>
+    Groomer: Nevena | 
+    Email: <a href="mailto:thelordscreatures@gmail.com" class="brand-link">thelordscreatures@gmail.com</a> | 
+    Instagram: 
+    <a href="https://www.instagram.com/thelordscreatures/" target="_blank" rel="noopener" class="footer-logo-brand">
+      <span class="brand-green">@</span><span class="brand-pink">thelords</span><span class="brand-green">creatures</span>
+    </a>
+  </p>
+  <p>Thank you for supporting small business!</p>
+  <a href="misc/contact.vcf" class="cta-button" download>
+    📇 Save Nevena to Contacts
+  </a>
+</footer>
 
   </div>
 
