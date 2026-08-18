@@ -607,7 +607,22 @@
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Appointment request submitted successfully!'); }"></iframe>
   </div>
 </section>
+    
+<script>
+  var submitted = false;
 
+  function handleFormSubmit(event) {
+    // Break standard HTML date picker (YYYY-MM-DD) into Google's required year, month, and day hidden fields
+    const dateVal = document.getElementById('pref_date').value;
+    if (dateVal) {
+      const parts = dateVal.split('-');
+      document.getElementById('date_year').value = parts[0];
+      document.getElementById('date_month').value = parts[1];
+      document.getElementById('date_day').value = parts[2];
+    }
+    submitted = true;
+  }
+</script>
     
     <!-- Footer -->
     <footer>
@@ -626,18 +641,4 @@
 
 
 
-<script>
-  var submitted = false;
 
-  function handleFormSubmit(event) {
-    // Break standard HTML date picker (YYYY-MM-DD) into Google's required year, month, and day hidden fields
-    const dateVal = document.getElementById('pref_date').value;
-    if (dateVal) {
-      const parts = dateVal.split('-');
-      document.getElementById('date_year').value = parts[0];
-      document.getElementById('date_month').value = parts[1];
-      document.getElementById('date_day').value = parts[2];
-    }
-    submitted = true;
-  }
-</script>
