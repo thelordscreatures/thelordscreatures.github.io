@@ -556,6 +556,14 @@
   color: var(--rose-dark);
   border-color: var(--border-color);
 }
+
+.heart-icon {
+  color: var(--rose, #d98880);
+  margin-right: 6px;
+  transform: rotate(-15deg);
+  display: inline-block;
+  font-size: 0.85rem;
+}
   </style>
 </head>
 <body>
@@ -920,7 +928,11 @@
     </script>
 
     <footer>
-      <p><strong>Professional ♥ Compassionate ♥ Trusted</strong></p>
+<div class="trust-badges">
+  <span class="trust-item"><i class="fa-solid fa-heart heart-icon"></i>Professional </span>
+  <span class="trust-item"><i class="fa-solid fa-heart heart-icon"></i>Compassionate </span>
+  <span class="trust-item"><i class="fa-solid fa-heart heart-icon"></i>Trusted </span>
+</div>
 <div class="service-cities-container">
   <p class="service-cities-title">
     <i class="fa-solid fa-location-dot"></i> Proudly Servicing South Orange County
