@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
  <style>
     :root {
       --rose: #C25B68;
@@ -464,6 +464,21 @@
 .brand-link:hover {
   text-decoration: underline;
 }
+
+.email-icon {
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.groomer-icon {
+  margin-right: 3px;
+  transform: rotate(-20deg); /* Gives the scissors a slight dynamic angle */
+  display: inline-block;
+}
+
+.contact-icon {
+  margin-right: 6px;
+}
   </style>
 </head>
 <body>
@@ -644,12 +659,12 @@
       <span class="checkbox-card-text">
         <span class="checkbox-card-info">
           <span class="card-header-row">
-            <strong>Deep Clean</strong>
+            <strong>Bath &amp; Brush</strong>
             <span class="tag-group">
               <span class="extras-tag">🎀 Bow or Bandana</span>
             </span>
           </span>
-          <small>Bath &amp; brush, blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads</small>
+          <small>Deep clean, blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads</small>
         </span>
       </span>
     </label>
@@ -771,19 +786,23 @@ document.addEventListener('DOMContentLoaded', validateServices);
 <footer>
   <p><strong>Professional ♥ Compassionate ♥ Trusted</strong></p>
   <p>
-    Groomer: Nevena | 
-    Email: <a href="mailto:thelordscreatures@gmail.com" class="brand-link">thelordscreatures@gmail.com</a> | 
-    Instagram: 
+    <span class="groomer-name">
+      <i class="fa-solid fa-scissors groomer-icon"></i> Nevena
+    </span> | 
+    <a href="mailto:thelordscreatures@gmail.com" class="brand-link">
+      <i class="fa-solid fa-envelope email-icon"></i>
+      thelordscreatures@gmail.com
+    </a> | 
     <a href="https://www.instagram.com/thelordscreatures/" target="_blank" rel="noopener" class="footer-logo-brand">
+      <i class="fa-brands fa-instagram ig-icon"></i>
       <span class="brand-green">@</span><span class="brand-pink">thelords</span><span class="brand-green">creatures</span>
     </a>
   </p>
-  <p>Thank you for supporting small business!</p>
+<p>Thank you for supporting small business!</p>
   <a href="misc/contact.vcf" class="cta-button" download>
-    📇 Save Nevena to Contacts
+    <i class="fa-solid fa-user contact-icon"></i> Save Nevena to Contacts
   </a>
 </footer>
-
   </div>
 
 </body>
