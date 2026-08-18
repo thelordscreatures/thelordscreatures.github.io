@@ -6,9 +6,9 @@
   <title>The Lord's Creatures | Dog Grooming</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
- <style>
+  <style>
     :root {
       --rose: #C25B68;
       --rose-dark: #A34854;
@@ -86,25 +86,41 @@
       color: var(--sage);
     }
 
-    /* Navigation */
+    /* Responsive Mobile Navigation */
     nav {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      padding: 15px 0;
+      align-items: center;
+      gap: 12px 20px;
+      padding: 15px 10px;
       border-bottom: 1px solid var(--border-color);
       margin-bottom: 30px;
+      width: 100%;
     }
 
     nav a {
       color: var(--sage);
       text-decoration: none;
       font-weight: 600;
+      font-size: 1.05rem;
+      white-space: nowrap;
       transition: color 0.3s ease;
     }
 
     nav a:hover {
       color: var(--rose);
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        gap: 10px 14px;
+        padding: 12px 5px;
+      }
+
+      nav a {
+        font-size: 0.95rem;
+      }
     }
 
     /* Sections */
@@ -315,36 +331,36 @@
     }
 
     .checkbox-card-info {
-	  display: flex;
-	  flex-direction: column;
-	  width: 100%; /* Ensures the container stretches fully even without <small> */
-	}
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
 
     .checkbox-card-info small {
       color: #666;
       margin-top: 2px;
     }
-	
-	.card-header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-}
+
+    .card-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+    }
 
     .price-tag {
-	  background-color: var(--sage-light);
-	  color: var(--sage);
-	  border: 1px solid var(--sage-border);
-	  font-weight: 700;
-	  font-size: 0.85rem;
-	  padding: 2px 10px;
-	  border-radius: 12px;
-	  white-space: nowrap;
-	  margin-left: 12px;
-	  align-self: center;
-	}
+      background-color: var(--sage-light);
+      color: var(--sage);
+      border: 1px solid var(--sage-border);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 2px 10px;
+      border-radius: 12px;
+      white-space: nowrap;
+      margin-left: 12px;
+      align-self: center;
+    }
 
     button.submit-btn-v2 {
       width: 100%;
@@ -407,78 +423,75 @@
       background-color: #3F5339;
       text-decoration: none;
     }
-	
-	.tag-group {
-	  display: flex;
-	  align-items: center;
-	  gap: 6px;
-	  margin-left: auto; /* Ensures tags push to the far right */
-	  flex-shrink: 0;   /* Prevents tags from shrinking on mobile */
-	}
 
-	/* addon-chip */
-	.extras-tag {
-	  background: linear-gradient(to right, var(--light-rose), #FCF0C8);
-	  color: var(--rose-dark);
-	  border: 1px solid var(--border-color);
-	  font-weight: 700;
-	  font-size: 0.8rem;
-	  padding: 2px 10px;
-	  border-radius: 12px;
-	  white-space: nowrap;
-	}
-	
-	#mouthwash_card {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transition: opacity 0.2s ease;
-}
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+    .tag-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
 
-/* Brand Text Styling */
-.footer-logo-brand {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  font-weight: 500;
-  text-decoration: none;
-  font-size: 1.05em;
-}
+    .extras-tag {
+      background: linear-gradient(to right, var(--light-rose), #FCF0C8);
+      color: var(--rose-dark);
+      border: 1px solid var(--border-color);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 2px 10px;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
 
-.brand-green {
-  color: #8EA659; /* Exact green from photo */
-}
+    #mouthwash_card {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transition: opacity 0.2s ease;
+    }
 
-.brand-pink {
-  color: #F38B9B; /* Exact pink from photo */
-}
+    /* Brand Text Styling */
+    .footer-logo-brand {
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 1.05em;
+    }
 
-.footer-logo-brand:hover {
-  opacity: 0.85;
-}
+    .brand-green {
+      color: #8EA659;
+    }
 
-/* Optional styling for email link matching brand green */
-.brand-link {
-  color: #8EA659;
-  text-decoration: none;
-}
+    .brand-pink {
+      color: #F38B9B;
+    }
 
-.brand-link:hover {
-  text-decoration: underline;
-}
+    .footer-logo-brand:hover {
+      opacity: 0.85;
+    }
 
-.email-icon {
-  margin-right: 4px;
-  vertical-align: middle;
-}
+    .brand-link {
+      color: #8EA659;
+      text-decoration: none;
+    }
 
-.groomer-icon {
-  margin-right: 3px;
-  transform: rotate(-20deg); /* Gives the scissors a slight dynamic angle */
-  display: inline-block;
-}
+    .brand-link:hover {
+      text-decoration: underline;
+    }
 
-.contact-icon {
-  margin-right: 6px;
-}
+    .email-icon {
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .groomer-icon {
+      margin-right: 3px;
+      transform: rotate(-20deg);
+      display: inline-block;
+    }
+
+    .contact-icon {
+      margin-right: 6px;
+    }
   </style>
 </head>
 <body>
@@ -488,7 +501,7 @@
     <!-- Header -->
     <header>
       <div class="tagline">Led by love, dedicated to quality.</div>
-      <h1>The Lord's Creatures</h1>
+	  <h1><span class="brand-pink">The Lord's </span><span class="brand-green">Creatures</span></h1>
       <div class="sub-title">DOG GROOMING</div>
       <p class="motto">Where thoughtful care begins.</p>
     </header>
@@ -540,17 +553,17 @@
 
     <!-- Gallery -->
     <section id="gallery">
-  <h2 class="section-title">Happy Pups Gallery</h2>
-  <div class="gallery-grid">
-<iframe 
-  src="https://drive.google.com/embeddedfolderview?id=1BDJbCEpQqKJqw_UQlZlZe9EVMTV3Qdp2#grid" 
-  width="100%" 
-  height="600" 
-  style="border: 0; border-radius: 12px;"
-  allowfullscreen>
-</iframe>
-  </div>
-</section>
+      <h2 class="section-title">Happy Pups Gallery</h2>
+      <div class="gallery-grid">
+        <iframe 
+          src="https://drive.google.com/embeddedfolderview?id=1BDJbCEpQqKJqw_UQlZlZe9EVMTV3Qdp2#grid" 
+          width="100%" 
+          height="600" 
+          style="border: 0; border-radius: 12px;"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
 
     <!-- Testimonials -->
     <section id="testimonials">
@@ -567,240 +580,236 @@
       </div>
     </section>
 
-   <section id="book">
-  <h2 class="section-title">Request Appointment</h2>
-  <div class="booking-form-v2">
-    <!-- Updated Form Target -->
-    <form action="https://docs.google.com/forms/d/e/1FAIpQLSfCg7Fj1WBhK-FEwPwWaIoUaRYxXnk6jIdz4cJVajKPU4-73Q/formResponse" 
-          method="POST" 
-          target="hidden_iframe" 
-          onsubmit="handleFormSubmit(event)">
-      
-      <!-- Client Info -->
-      <div class="form-group">
-        <label class="field-label" for="owner_name">Owner's Name</label>
-        <input type="text" id="owner_name" name="entry.216716512" required pattern="^[A-Za-z]+(\s+[A-Za-z]+)+$" title="Please enter both a first and last name separated by a space." placeholder="Jane Doe">
+    <section id="book">
+      <h2 class="section-title">Request Appointment</h2>
+      <div class="booking-form-v2">
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfCg7Fj1WBhK-FEwPwWaIoUaRYxXnk6jIdz4cJVajKPU4-73Q/formResponse" 
+              method="POST" 
+              target="hidden_iframe" 
+              onsubmit="handleFormSubmit(event)">
+          
+          <!-- Client Info -->
+          <div class="form-group">
+            <label class="field-label" for="owner_name">Owner's Name</label>
+            <input type="text" id="owner_name" name="entry.216716512" required pattern="^[A-Za-z]+(\s+[A-Za-z]+)+$" title="Please enter both a first and last name separated by a space." placeholder="Jane Doe">
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="entry.453506455" required placeholder="(949) 891-5032">
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="email">Email Address</label>
+            <input type="email" id="email" name="entry.2070209821" placeholder="jane@example.com">
+          </div>
+
+          <!-- Dog Profile -->
+          <div class="form-group">
+            <label class="field-label" for="dog_info">Dog's Name &amp; Breed</label>
+            <input type="text" id="dog_info" name="entry.2097919179" required placeholder="Teddy (Goldendoodle)">
+          </div>
+
+          <div class="grid-2col form-group">
+            <div class="form-group">
+              <label class="field-label" for="weight">Weight (lbs)</label>
+              <input type="number" id="weight" name="entry.992750075" required step="1" min="1" placeholder="25">
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="age">Dog's Age</label>
+              <input type="text" id="age" name="entry.747309699" placeholder="3 yrs / 6 mos">
+            </div>
+          </div>
+
+          <!-- Preferred Date & Time -->
+          <div class="grid-2col form-group">
+            <div class="form-group">
+              <label class="field-label" for="pref_date">Preferred Date</label>
+              <input type="date" id="pref_date" required>
+              <input type="hidden" id="date_year" name="entry.1490817868_year">
+              <input type="hidden" id="date_month" name="entry.1490817868_month">
+              <input type="hidden" id="date_day" name="entry.1490817868_day">
+            </div>
+
+            <div class="form-group">
+              <label class="field-label" for="pref_time">Preferred Time Window</label>
+              <select id="pref_time" name="entry.1975097107" required>
+                <option value="" disabled selected>Select a time window</option>
+                <option value="Morning (8am - 12pm)">Morning (8am - 12pm)</option>
+                <option value="Afternoon (12pm - 4pm)">Afternoon (12pm - 4pm)</option>
+                <option value="Flexible / Any Time">Flexible / Any Time</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Checkbox Services -->
+          <div class="form-group">
+            <label class="field-label">Select Requested Services: <span style="color: var(--rose-dark, #c25b68);">*</span></label>
+            <div class="checkbox-group" id="services_group">
+              
+              <label class="checkbox-card">
+                <input type="checkbox" name="entry.487565551" value="Full Groom" required onchange="validateServices()">
+                <span class="checkbox-card-text">
+                  <span class="checkbox-card-info">
+                    <span class="card-header-row">
+                      <strong>Full Groom</strong>
+                      <span class="tag-group">
+                        <span class="extras-tag">🎀 Bow or Bandana</span>
+                      </span>
+                    </span>
+                    <small>Complete bath, blow-dry, haircut, style and total pampering, cologne, bow/bandana</small>
+                  </span>
+                </span>
+              </label>
+
+              <label class="checkbox-card">
+                <input type="checkbox" name="entry.487565551" value="Deep Clean" required onchange="validateServices()">
+                <span class="checkbox-card-text">
+                  <span class="checkbox-card-info">
+                    <span class="card-header-row">
+                      <strong>Bath &amp; Brush</strong>
+                      <span class="tag-group">
+                        <span class="extras-tag">🎀 Bow or Bandana</span>
+                      </span>
+                    </span>
+                    <small>Deep clean, blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads</small>
+                  </span>
+                </span>
+              </label>
+
+              <label class="checkbox-card">
+                <input type="checkbox" name="entry.487565551" value="Deshedding Treatment" required onchange="validateServices()">
+                <span class="checkbox-card-text">
+                  <span class="checkbox-card-info">
+                    <span class="card-header-row">
+                      <strong>Deshedding Treatment</strong>
+                      <span class="price-tag">$15-$40</span>
+                    </span>
+                    <small>Reduces undercoat &amp; shedding including deep conditioning + extra brushing</small>
+                  </span>
+                </span>
+              </label>
+              
+              <label class="checkbox-card">
+                <input type="checkbox" name="entry.487565551" value="Nail Care" required onchange="validateServices()">
+                <span class="checkbox-card-text">
+                  <span class="checkbox-card-info">
+                    <span class="card-header-row">
+                      <strong>Nail Care</strong>
+                    </span>
+                    <small>Safe nail trimming and smooth filing</small>
+                  </span>
+                </span>
+              </label>
+
+              <label class="checkbox-card">
+                <input type="checkbox" name="entry.487565551" value="Pluck Ears" required onchange="validateServices()">
+                <span class="checkbox-card-text">
+                  <span class="checkbox-card-info">
+                    <span class="card-header-row">
+                      <strong>Pluck Ears</strong>
+                      <span class="price-tag">$5-$10</span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+
+              <label class="checkbox-card">
+                <input type="checkbox" id="brushteeth_checkbox" name="entry.487565551" value="Brush Teeth" required onchange="toggleMouthWash(this); validateServices();">
+                <span class="checkbox-card-text">
+                  <span class="checkbox-card-info">
+                    <span class="card-header-row">
+                      <strong>Brush Teeth</strong>
+                      <span class="price-tag">$10</span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+
+              <label class="checkbox-card" id="mouthwash_card">
+                <input type="checkbox" id="mouthwash_checkbox" name="entry.487565551" value="Mouth Wash" disabled onchange="validateServices()">
+                <span class="checkbox-card-text">
+                  <span class="checkbox-card-info">
+                    <span class="card-header-row">
+                      <strong>Mouth Wash</strong>
+                      <span class="price-tag">free</span>
+                    </span>
+                    <small>Comes optional with Brush Teeth service</small>
+                  </span>
+                </span>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- Grooming History & Questions -->
+          <div class="form-group">
+            <label class="field-label" for="history">When was last grooming / is dog matted?</label>
+            <textarea id="history" name="entry.1964484264" rows="3" placeholder="e.g. Last groomed 2 months ago, slight matting on ears..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label" for="special_needs">Special Needs or Aggression Details</label>
+            <textarea id="special_needs" name="entry.1399637306" rows="3" placeholder="e.g. Sensitive paws, gets nervous around blow dryers, arthritis..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn-v2">Request Appointment</button>
+        </form>
+
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Appointment request submitted successfully!'); }"></iframe>
       </div>
+    </section>
 
-      <div class="form-group">
-        <label class="field-label" for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="entry.453506455" required placeholder="(949) 891-5032">
-      </div>
+    <script>
+    function toggleMouthWash(brushTeethCheckbox) {
+      const mouthWashInput = document.getElementById('mouthwash_checkbox');
+      const mouthWashCard = document.getElementById('mouthwash_card');
 
-      <div class="form-group">
-        <label class="field-label" for="email">Email Address</label>
-        <input type="email" id="email" name="entry.2070209821" placeholder="jane@example.com">
-      </div>
+      if (brushTeethCheckbox.checked) {
+        mouthWashInput.disabled = false;
+        mouthWashCard.style.opacity = '1';
+        mouthWashCard.style.cursor = 'pointer';
+      } else {
+        mouthWashInput.disabled = true;
+        mouthWashInput.checked = false;
+        mouthWashCard.style.opacity = '0.5';
+        mouthWashCard.style.cursor = 'not-allowed';
+      }
+    }
 
-      <!-- Dog Profile -->
-      <div class="form-group">
-        <label class="field-label" for="dog_info">Dog's Name &amp; Breed</label>
-        <input type="text" id="dog_info" name="entry.2097919179" required placeholder="Teddy (Goldendoodle)">
-      </div>
+    function validateServices() {
+      const checkboxes = document.querySelectorAll('input[name="entry.487565551"]:not([disabled])');
+      const hasChecked = Array.from(checkboxes).some(cb => cb.checked);
 
-      <div class="grid-2col form-group">
-        <div class="form-group">
-          <label class="field-label" for="weight">Weight (lbs)</label>
-          <input type="number" id="weight" name="entry.992750075" required step="1" min="1" placeholder="25">
-        </div>
+      checkboxes.forEach(cb => {
+        cb.required = !hasChecked;
+      });
+    }
 
-        <div class="form-group">
-          <label class="field-label" for="age">Dog's Age</label>
-          <input type="text" id="age" name="entry.747309699" placeholder="3 yrs / 6 mos">
-        </div>
-      </div>
+    document.addEventListener('DOMContentLoaded', validateServices);
+    </script>
 
-      <!-- Preferred Date & Time -->
-      <div class="grid-2col form-group">
-        <div class="form-group">
-          <label class="field-label" for="pref_date">Preferred Date</label>
-          <input type="date" id="pref_date" required>
-          <!-- Hidden inputs for Google Forms Date structure -->
-          <input type="hidden" id="date_year" name="entry.1490817868_year">
-          <input type="hidden" id="date_month" name="entry.1490817868_month">
-          <input type="hidden" id="date_day" name="entry.1490817868_day">
-        </div>
-
-        <div class="form-group">
-          <label class="field-label" for="pref_time">Preferred Time Window</label>
-          <select id="pref_time" name="entry.1975097107" required>
-            <option value="" disabled selected>Select a time window</option>
-            <option value="Morning (8am - 12pm)">Morning (8am - 12pm)</option>
-            <option value="Afternoon (12pm - 4pm)">Afternoon (12pm - 4pm)</option>
-            <option value="Flexible / Any Time">Flexible / Any Time</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Checkbox Services -->
-<div class="form-group">
-  <label class="field-label">Select Requested Services: <span style="color: var(--rose-dark, #c25b68);">*</span></label>
-  <div class="checkbox-group" id="services_group">
-    
-    <label class="checkbox-card">
-      <input type="checkbox" name="entry.487565551" value="Full Groom" required onchange="validateServices()">
-      <span class="checkbox-card-text">
-        <span class="checkbox-card-info">
-          <span class="card-header-row">
-            <strong>Full Groom</strong>
-            <span class="tag-group">
-              <span class="extras-tag">🎀 Bow or Bandana</span>
-            </span>
-          </span>
-          <small>Complete bath, blow-dry, haircut, style and total pampering, cologne, bow/bandana</small>
-        </span>
-      </span>
-    </label>
-
-    <label class="checkbox-card">
-      <input type="checkbox" name="entry.487565551" value="Deep Clean" required onchange="validateServices()">
-      <span class="checkbox-card-text">
-        <span class="checkbox-card-info">
-          <span class="card-header-row">
-            <strong>Bath &amp; Brush</strong>
-            <span class="tag-group">
-              <span class="extras-tag">🎀 Bow or Bandana</span>
-            </span>
-          </span>
-          <small>Deep clean, blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads</small>
-        </span>
-      </span>
-    </label>
-
-    <label class="checkbox-card">
-      <input type="checkbox" name="entry.487565551" value="Deshedding Treatment" required onchange="validateServices()">
-      <span class="checkbox-card-text">
-        <span class="checkbox-card-info">
-          <span class="card-header-row">
-            <strong>Deshedding Treatment</strong>
-            <span class="price-tag">$15-$40</span>
-          </span>
-          <small>Reduces undercoat &amp; shedding including deep conditioning + extra brushing</small>
-        </span>
-      </span>
-    </label>
-    
-    <label class="checkbox-card">
-      <input type="checkbox" name="entry.487565551" value="Nail Care" required onchange="validateServices()">
-      <span class="checkbox-card-text">
-        <span class="checkbox-card-info">
-          <span class="card-header-row">
-            <strong>Nail Care</strong>
-          </span>
-          <small>Safe nail trimming and smooth filing</small>
-        </span>
-      </span>
-    </label>
-
-    <label class="checkbox-card">
-      <input type="checkbox" name="entry.487565551" value="Pluck Ears" required onchange="validateServices()">
-      <span class="checkbox-card-text">
-        <span class="checkbox-card-info">
-          <span class="card-header-row">
-            <strong>Pluck Ears</strong>
-            <span class="price-tag">$5-$10</span>
-          </span>
-        </span>
-      </span>
-    </label>
-
-    <label class="checkbox-card">
-      <input type="checkbox" id="brushteeth_checkbox" name="entry.487565551" value="Brush Teeth" required onchange="toggleMouthWash(this); validateServices();">
-      <span class="checkbox-card-text">
-        <span class="checkbox-card-info">
-          <span class="card-header-row">
-            <strong>Brush Teeth</strong>
-            <span class="price-tag">$10</span>
-          </span>
-        </span>
-      </span>
-    </label>
-
-    <label class="checkbox-card" id="mouthwash_card">
-      <input type="checkbox" id="mouthwash_checkbox" name="entry.487565551" value="Mouth Wash" disabled onchange="validateServices()">
-      <span class="checkbox-card-text">
-        <span class="checkbox-card-info">
-          <span class="card-header-row">
-            <strong>Mouth Wash</strong>
-            <span class="price-tag">free</span>
-          </span>
-          <small>Comes optional with Brush Teeth service</small>
-        </span>
-      </span>
-    </label>
-
-  </div>
-</div>
-
-      <!-- Grooming History & Questions -->
-      <div class="form-group">
-        <label class="field-label" for="history">When was last grooming / is dog matted?</label>
-        <textarea id="history" name="entry.1964484264" rows="3" placeholder="e.g. Last groomed 2 months ago, slight matting on ears..."></textarea>
-      </div>
-
-      <div class="form-group">
-        <label class="field-label" for="special_needs">Special Needs or Aggression Details</label>
-        <textarea id="special_needs" name="entry.1399637306" rows="3" placeholder="e.g. Sensitive paws, gets nervous around blow dryers, arthritis..."></textarea>
-      </div>
-
-      <button type="submit" class="submit-btn-v2">Request Appointment</button>
-    </form>
-
-    <!-- Invisible iframe target -->
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Appointment request submitted successfully!'); }"></iframe>
-  </div>
-</section>
-
-<script>
-function toggleMouthWash(brushTeethCheckbox) {
-  const mouthWashInput = document.getElementById('mouthwash_checkbox');
-  const mouthWashCard = document.getElementById('mouthwash_card');
-
-  if (brushTeethCheckbox.checked) {
-    mouthWashInput.disabled = false;
-    mouthWashCard.style.opacity = '1';
-    mouthWashCard.style.cursor = 'pointer';
-  } else {
-    mouthWashInput.disabled = true;
-    mouthWashInput.checked = false; // Uncheck automatically if Brush Teeth is unselected
-    mouthWashCard.style.opacity = '0.5';
-    mouthWashCard.style.cursor = 'not-allowed';
-  }
-}
-
-function validateServices() {
-  const checkboxes = document.querySelectorAll('input[name="entry.487565551"]:not([disabled])');
-  const hasChecked = Array.from(checkboxes).some(cb => cb.checked);
-
-  checkboxes.forEach(cb => {
-    cb.required = !hasChecked;
-  });
-}
-
-// Run once on load to ensure initial state is correct
-document.addEventListener('DOMContentLoaded', validateServices);
-</script>
-    
-<footer>
-  <p><strong>Professional ♥ Compassionate ♥ Trusted</strong></p>
-  <p>
-    <span class="groomer-name">
-      <i class="fa-solid fa-scissors groomer-icon"></i> Nevena
-    </span> | 
-    <a href="mailto:thelordscreatures@gmail.com" class="brand-link">
-      <i class="fa-solid fa-envelope email-icon"></i>
-      thelordscreatures@gmail.com
-    </a> | 
-    <a href="https://www.instagram.com/thelordscreatures/" target="_blank" rel="noopener" class="footer-logo-brand">
-      <i class="fa-brands fa-instagram ig-icon"></i>
-      <span class="brand-green">@</span><span class="brand-pink">thelords</span><span class="brand-green">creatures</span>
-    </a>
-  </p>
-<p>Thank you for supporting small business!</p>
-  <a href="misc/contact.vcf" class="cta-button" download>
-    <i class="fa-solid fa-user contact-icon"></i> Save Nevena to Contacts
-  </a>
-</footer>
+    <footer>
+      <p><strong>Professional ♥ Compassionate ♥ Trusted</strong></p>
+      <p>
+        <span class="groomer-name">
+          <i class="fa-solid fa-scissors groomer-icon"></i> Nevena
+        </span> | 
+        <a href="mailto:thelordscreatures@gmail.com" class="brand-link">
+          <i class="fa-solid fa-envelope email-icon"></i>
+          thelordscreatures@gmail.com
+        </a> | 
+        <a href="https://www.instagram.com/thelordscreatures/" target="_blank" rel="noopener" class="footer-logo-brand">
+          <i class="fa-brands fa-instagram ig-icon"></i>
+          <span class="brand-green">@</span><span class="brand-pink">thelords</span><span class="brand-green">creatures</span>
+        </a>
+      </p>
+      <p>Thank you for supporting small business!</p>
+      <a href="misc/contact.vcf" class="cta-button" download>
+        <i class="fa-solid fa-user contact-icon"></i> Save Nevena to Contacts
+      </a>
+    </footer>
   </div>
 
 </body>
