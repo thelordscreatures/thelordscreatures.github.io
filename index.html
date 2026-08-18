@@ -191,19 +191,6 @@
       gap: 15px;
     }
 
-    .gallery-img {
-      width: 100%;
-      height: 200px;
-      background-color: #EADCDA;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--rose);
-      border: 2px solid var(--light-rose);
-      font-style: italic;
-    }
-
     /* Testimonials */
     .testimonials-grid {
       display: grid;
@@ -293,11 +280,21 @@
       }
     }
 
-    /* Checkboxes */
+    /* Grouped Checkbox Service Cards */
     .checkbox-group {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
+    }
+
+    .service-group {
+      background: rgba(255, 253, 249, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
     .checkbox-card {
@@ -347,6 +344,39 @@
       align-items: center;
       gap: 8px;
       width: 100%;
+    }
+
+    /* Sub-option Checkbox Styling */
+    .sub-options-container {
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .checkbox-card.sub-option {
+      padding: 8px 12px;
+      background: var(--cream);
+      border: 1px dashed var(--border-color);
+      border-radius: 8px;
+    }
+
+    .checkbox-card.sub-option input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      margin-top: 1px;
+    }
+
+    .checkbox-card.sub-option .sub-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--sage-dark, #3D3535);
+    }
+
+    .sub-disabled {
+      opacity: 0.5;
+      cursor: not-allowed !important;
+      transition: opacity 0.2s ease;
     }
 
     .price-tag {
@@ -443,12 +473,6 @@
       white-space: nowrap;
     }
 
-    #mouthwash_card {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transition: opacity 0.2s ease;
-    }
-
     /* Brand Text Styling */
     .footer-logo-brand {
       font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
@@ -492,16 +516,55 @@
     .contact-icon {
       margin-right: 6px;
     }
+	
+	
+	.service-cities-container {
+  margin: 20px auto 10px;
+  max-width: 800px;
+  text-align: center;
+}
+
+.service-cities-title {
+  font-weight: 700;
+  color: var(--rose);
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.city-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 8px;
+}
+
+.chip {
+  background-color: var(--sage-light);
+  color: var(--sage);
+  border: 1px solid var(--sage-border);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 16px;
+  white-space: nowrap;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.chip:hover {
+  background-color: var(--light-rose);
+  color: var(--rose-dark);
+  border-color: var(--border-color);
+}
   </style>
 </head>
 <body>
 
   <div class="page-frame">
-    
     <!-- Header -->
     <header>
       <div class="tagline">Led by love, dedicated to quality.</div>
-	  <h1><span class="brand-pink">The Lord's </span><span class="brand-green">Creatures</span></h1>
+      <h1><span class="brand-pink">The Lord's </span><span class="brand-green">Creatures</span></h1>
       <div class="sub-title">DOG GROOMING</div>
       <p class="motto">Where thoughtful care begins.</p>
     </header>
@@ -529,8 +592,8 @@
           <p>Complete bath, blow-dry, haircut, style and total pampering with cologne and 🎀 bows or a bandanna.</p>
         </div>
         <div class="service-card">
-          <h3>Bath &amp; Brush 🐾</h3>
-          <p>Deep clean, blow dry, and thorough brush-out. With cute 🎀 bows and bandanna.</p>
+          <h3>Bath &amp; Tidy 🐾</h3>
+          <p>Deep clean bath, blow-dry, and thorough brush-out. Optional light trimming around face, feet, and sanitary areas.</p>
         </div>
         <div class="service-card">
           <h3>Nail Care 🐾</h3>
@@ -555,13 +618,7 @@
     <section id="gallery">
       <h2 class="section-title">Happy Pups Gallery</h2>
       <div class="gallery-grid">
-        <iframe 
-          src="https://drive.google.com/embeddedfolderview?id=1BDJbCEpQqKJqw_UQlZlZe9EVMTV3Qdp2#grid" 
-          width="100%" 
-          height="600" 
-          style="border: 0; border-radius: 12px;"
-          allowfullscreen>
-        </iframe>
+        <iframe src="https://drive.google.com/embeddedfolderview?id=1BDJbCEpQqKJqw_UQlZlZe9EVMTV3Qdp2#grid" width="100%" height="600" style="border: 0; border-radius: 12px;" allowfullscreen></iframe>
       </div>
     </section>
 
@@ -583,10 +640,7 @@
     <section id="book">
       <h2 class="section-title">Request Appointment</h2>
       <div class="booking-form-v2">
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfCg7Fj1WBhK-FEwPwWaIoUaRYxXnk6jIdz4cJVajKPU4-73Q/formResponse" 
-              method="POST" 
-              target="hidden_iframe" 
-              onsubmit="handleFormSubmit(event)">
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfCg7Fj1WBhK-FEwPwWaIoUaRYxXnk6jIdz4cJVajKPU4-73Q/formResponse" method="POST" target="hidden_iframe" onsubmit="handleFormSubmit(event)">
           
           <!-- Client Info -->
           <div class="form-group">
@@ -626,7 +680,7 @@
           <div class="grid-2col form-group">
             <div class="form-group">
               <label class="field-label" for="pref_date">Preferred Date</label>
-              <input type="date" id="pref_date" required>
+              <input type="date" id="pref_date" required onchange="syncDateInputs(this)">
               <input type="hidden" id="date_year" name="entry.1490817868_year">
               <input type="hidden" id="date_month" name="entry.1490817868_month">
               <input type="hidden" id="date_day" name="entry.1490817868_day">
@@ -648,6 +702,7 @@
             <label class="field-label">Select Requested Services: <span style="color: var(--rose-dark, #c25b68);">*</span></label>
             <div class="checkbox-group" id="services_group">
               
+              <!-- Standalone Service: Full Groom -->
               <label class="checkbox-card">
                 <input type="checkbox" name="entry.487565551" value="Full Groom" required onchange="validateServices()">
                 <span class="checkbox-card-text">
@@ -663,21 +718,42 @@
                 </span>
               </label>
 
-              <label class="checkbox-card">
-                <input type="checkbox" name="entry.487565551" value="Deep Clean" required onchange="validateServices()">
-                <span class="checkbox-card-text">
-                  <span class="checkbox-card-info">
-                    <span class="card-header-row">
-                      <strong>Bath &amp; Brush</strong>
-                      <span class="tag-group">
-                        <span class="extras-tag">🎀 Bow or Bandana</span>
+              <!-- Service Group 1: Bath & Tidy Package -->
+              <div class="service-group">
+                <label class="checkbox-card">
+                  <input type="checkbox" id="bath_tidy_checkbox" name="entry.487565551" value="Bath & Tidy" required onchange="toggleBathTidySubOptions(this); validateServices();">
+                  <span class="checkbox-card-text">
+                    <span class="checkbox-card-info">
+                      <span class="card-header-row">
+                        <strong>Bath &amp; Tidy</strong>
+                        <span class="tag-group">
+                          <span class="extras-tag">🎀 Bow or Bandana</span>
+                        </span>
                       </span>
+                      <small>Deep clean bath, blow-dry, thorough brush-out</small>
                     </span>
-                    <small>Deep clean, blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads</small>
                   </span>
-                </span>
-              </label>
+                </label>
 
+                <div class="sub-options-container">
+                  <label class="checkbox-card sub-option sub-disabled" id="eyetrim_card">
+                    <input type="checkbox" id="eyetrim_checkbox" name="entry.487565551" value="Eye Trim" disabled onchange="validateServices()">
+                    <span class="sub-label">Eye trim</span>
+                  </label>
+
+                  <label class="checkbox-card sub-option sub-disabled" id="sanitary_card">
+                    <input type="checkbox" id="sanitary_checkbox" name="entry.487565551" value="Sanitary Area Trim" disabled onchange="validateServices()">
+                    <span class="sub-label">Sanitary area trim</span>
+                  </label>
+
+                  <label class="checkbox-card sub-option sub-disabled" id="foot_card">
+                    <input type="checkbox" id="foot_checkbox" name="entry.487565551" value="Paw Pad & Foot Tidy" disabled onchange="validateServices()">
+                    <span class="sub-label">Paw pad &amp; foot tidy</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Standalone Service: Deshedding -->
               <label class="checkbox-card">
                 <input type="checkbox" name="entry.487565551" value="Deshedding Treatment" required onchange="validateServices()">
                 <span class="checkbox-card-text">
@@ -691,6 +767,7 @@
                 </span>
               </label>
               
+              <!-- Standalone Service: Nail Care -->
               <label class="checkbox-card">
                 <input type="checkbox" name="entry.487565551" value="Nail Care" required onchange="validateServices()">
                 <span class="checkbox-card-text">
@@ -703,6 +780,7 @@
                 </span>
               </label>
 
+              <!-- Standalone Service: Pluck Ears -->
               <label class="checkbox-card">
                 <input type="checkbox" name="entry.487565551" value="Pluck Ears" required onchange="validateServices()">
                 <span class="checkbox-card-text">
@@ -715,30 +793,35 @@
                 </span>
               </label>
 
-              <label class="checkbox-card">
-                <input type="checkbox" id="brushteeth_checkbox" name="entry.487565551" value="Brush Teeth" required onchange="toggleMouthWash(this); validateServices();">
-                <span class="checkbox-card-text">
-                  <span class="checkbox-card-info">
-                    <span class="card-header-row">
-                      <strong>Brush Teeth</strong>
-                      <span class="price-tag">$10</span>
+              <!-- Service Group 2: Dental Care Package -->
+              <div class="service-group">
+                <label class="checkbox-card">
+                  <input type="checkbox" id="brushteeth_checkbox" name="entry.487565551" value="Brush Teeth" required onchange="toggleMouthWash(this); validateServices();">
+                  <span class="checkbox-card-text">
+                    <span class="checkbox-card-info">
+                      <span class="card-header-row">
+                        <strong>Brush Teeth</strong>
+                        <span class="price-tag">$10</span>
+                      </span>
                     </span>
                   </span>
-                </span>
-              </label>
+                </label>
 
-              <label class="checkbox-card" id="mouthwash_card">
-                <input type="checkbox" id="mouthwash_checkbox" name="entry.487565551" value="Mouth Wash" disabled onchange="validateServices()">
-                <span class="checkbox-card-text">
-                  <span class="checkbox-card-info">
-                    <span class="card-header-row">
-                      <strong>Mouth Wash</strong>
-                      <span class="price-tag">free</span>
+                <div class="sub-options-container">
+                  <label class="checkbox-card sub-option sub-disabled" id="mouthwash_card">
+                    <input type="checkbox" id="mouthwash_checkbox" name="entry.487565551" value="Mouth Wash" disabled onchange="validateServices()">
+                    <span class="checkbox-card-text">
+                      <span class="checkbox-card-info">
+                        <span class="card-header-row">
+                          <span class="sub-label">Mouth Wash</span>
+                          <span class="price-tag">free</span>
+                        </span>
+                        <small>Comes optional with Brush Teeth service</small>
+                      </span>
                     </span>
-                    <small>Comes optional with Brush Teeth service</small>
-                  </span>
-                </span>
-              </label>
+                  </label>
+                </div>
+              </div>
 
             </div>
           </div>
@@ -757,24 +840,53 @@
           <button type="submit" class="submit-btn-v2">Request Appointment</button>
         </form>
 
-        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Appointment request submitted successfully!'); }"></iframe>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
       </div>
     </section>
 
     <script>
+    let submitted = false;
+
+    function syncDateInputs(datePicker) {
+      if (!datePicker.value) return;
+      const parts = datePicker.value.split('-');
+      if (parts.length === 3) {
+        document.getElementById('date_year').value = parts[0];
+        document.getElementById('date_month').value = parts[1];
+        document.getElementById('date_day').value = parts[2];
+      }
+    }
+
+    function toggleBathTidySubOptions(mainCheckbox) {
+      const subCards = [
+        { card: document.getElementById('eyetrim_card'), input: document.getElementById('eyetrim_checkbox') },
+        { card: document.getElementById('sanitary_card'), input: document.getElementById('sanitary_checkbox') },
+        { card: document.getElementById('foot_card'), input: document.getElementById('foot_checkbox') }
+      ];
+
+      subCards.forEach(item => {
+        if (mainCheckbox.checked) {
+          item.input.disabled = false;
+          item.card.classList.remove('sub-disabled');
+        } else {
+          item.input.disabled = true;
+          item.input.checked = false;
+          item.card.classList.add('sub-disabled');
+        }
+      });
+    }
+
     function toggleMouthWash(brushTeethCheckbox) {
       const mouthWashInput = document.getElementById('mouthwash_checkbox');
       const mouthWashCard = document.getElementById('mouthwash_card');
 
       if (brushTeethCheckbox.checked) {
         mouthWashInput.disabled = false;
-        mouthWashCard.style.opacity = '1';
-        mouthWashCard.style.cursor = 'pointer';
+        mouthWashCard.classList.remove('sub-disabled');
       } else {
         mouthWashInput.disabled = true;
         mouthWashInput.checked = false;
-        mouthWashCard.style.opacity = '0.5';
-        mouthWashCard.style.cursor = 'not-allowed';
+        mouthWashCard.classList.add('sub-disabled');
       }
     }
 
@@ -787,11 +899,48 @@
       });
     }
 
+    function handleFormSubmit(event) {
+      const form = event.target;
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        form.reportValidity();
+        return false;
+      }
+      submitted = true;
+    }
+
+    document.getElementById('hidden_iframe').addEventListener('load', function() {
+      if (submitted) {
+        alert('Appointment request submitted successfully!');
+        submitted = false;
+      }
+    });
+
     document.addEventListener('DOMContentLoaded', validateServices);
     </script>
 
     <footer>
       <p><strong>Professional ♥ Compassionate ♥ Trusted</strong></p>
+<div class="service-cities-container">
+  <p class="service-cities-title">
+    <i class="fa-solid fa-location-dot"></i> Proudly Servicing South Orange County
+  </p>
+  <div class="city-chips">
+    <span class="chip">Laguna Beach</span>
+    <span class="chip">Laguna Woods</span>
+    <span class="chip">Laguna Hills</span>
+    <span class="chip">Aliso Viejo</span>
+    <span class="chip">Laguna Niguel</span>
+    <span class="chip">Lake Forest</span>
+    <span class="chip">Mission Viejo</span>
+    <span class="chip">Rancho Santa Margarita</span>
+    <span class="chip">Ladera Ranch</span>
+    <span class="chip">Rancho Mission Viejo</span>
+    <span class="chip">San Juan Capistrano</span>
+    <span class="chip">Dana Point</span>
+    <span class="chip">San Clemente</span>
+  </div>
+</div>
       <p>
         <span class="groomer-name">
           <i class="fa-solid fa-scissors groomer-icon"></i> Nevena
