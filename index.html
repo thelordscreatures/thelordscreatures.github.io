@@ -315,27 +315,36 @@
     }
 
     .checkbox-card-info {
-      display: flex;
-      flex-direction: column;
-    }
+	  display: flex;
+	  flex-direction: column;
+	  width: 100%; /* Ensures the container stretches fully even without <small> */
+	}
 
     .checkbox-card-info small {
       color: #666;
       margin-top: 2px;
     }
+	
+	.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
 
     .price-tag {
-  background-color: var(--sage-light);
-  color: var(--sage);
-  border: 1px solid var(--sage-border);
-  font-weight: 700;
-  font-size: 0.85rem;
-  padding: 2px 10px;
-  border-radius: 12px;
-  white-space: nowrap;
-  margin-left: 12px;
-  align-self: center;
-}
+	  background-color: var(--sage-light);
+	  color: var(--sage);
+	  border: 1px solid var(--sage-border);
+	  font-weight: 700;
+	  font-size: 0.85rem;
+	  padding: 2px 10px;
+	  border-radius: 12px;
+	  white-space: nowrap;
+	  margin-left: 12px;
+	  align-self: center;
+	}
 
     button.submit-btn-v2 {
       width: 100%;
@@ -398,6 +407,26 @@
       background-color: #3F5339;
       text-decoration: none;
     }
+	
+	.tag-group {
+	  display: flex;
+	  align-items: center;
+	  gap: 6px;
+	  margin-left: auto; /* Ensures tags push to the far right */
+	  flex-shrink: 0;   /* Prevents tags from shrinking on mobile */
+	}
+
+	/* addon-chip */
+	.extras-tag {
+	  background: linear-gradient(to right, var(--light-rose), #FCF0C8);
+	  color: var(--rose-dark);
+	  border: 1px solid var(--border-color);
+	  font-weight: 700;
+	  font-size: 0.8rem;
+	  padding: 2px 10px;
+	  border-radius: 12px;
+	  white-space: nowrap;
+	}
   </style>
 </head>
 <body>
@@ -560,71 +589,98 @@
         <label class="field-label">Select Requested Services:</label>
         <div class="checkbox-group">
           
-          <label class="checkbox-card">
-            <input type="checkbox" name="entry.487565551" value="*Full Groom">
-            <span class="checkbox-card-text">
-              <span class="checkbox-card-info">
-                <strong>Full Grooming</strong>
-                <small>Includes bath, nail care, haircut &amp; style, bow/bandanna and cologne.</small>
-              </span>
-            </span>
-          </label>
+		<label class="checkbox-card">
+		  <input type="checkbox" name="entry.487565551" value="*Full Groom">
+		  <span class="checkbox-card-text">
+			<span class="checkbox-card-info">
+			  <span class="card-header-row">
+				<strong>Full Groom</strong>
+				<span class="tag-group">
+				  <span class="extras-tag">🎀 Bow or Bandana</span>
+				</span>
+			  </span>
+			  <small>Complete bath, blow-dry, haircut, style and total pampering, cologne, bow/bandana  </small>
+			</span>
+		  </span>
+		</label>
 
-          <label class="checkbox-card">
-            <input type="checkbox" name="entry.487565551" value="*Bath and *Brush">
-            <span class="checkbox-card-text">
-              <span class="checkbox-card-info">
-                <strong>Bath &amp; Brush Only</strong>
-              </span>
-            </span>
-          </label>
+	  <label class="checkbox-card">
+		<input type="checkbox" name="entry.487565551" value="*Deep Clean">
+		<span class="checkbox-card-text">
+			<span class="checkbox-card-info">
+			  <span class="card-header-row">
+				<strong>Deep Clean</strong>
+				<span class="tag-group">
+				  <span class="extras-tag">🎀 Bow or Bandana</span>
+				</span>
+			  </span>
+			  <small>Bath &amp; brush, blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads</small>
+			</span>
+		  </span>
+	  </label>
 
-          <label class="checkbox-card">
-            <input type="checkbox" name="entry.487565551" value="*Deep Clean">
-            <span class="checkbox-card-text">
-              <span class="checkbox-card-info">
-                <strong>Deep Clean</strong>
-                <small>Blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads.</small>
-              </span>
-            </span>
-          </label>
-
-          <label class="checkbox-card">
-            <input type="checkbox" name="entry.487565551" value="*Deshedding Treatment">
-            <span class="checkbox-card-text">
-              <span class="checkbox-card-info">
-                <strong>Deshedding Treatment</strong>
-                <small>Reduces undercoat &amp; shedding including deep conditioning + extra brushing.</small>
-              </span>
-            </span>
-          </label>
+		<label class="checkbox-card">
+		  <input type="checkbox" name="entry.487565551" value="*Deshedding Treatment">
+		  <span class="checkbox-card-text">
+			<span class="checkbox-card-info">
+			  <span class="card-header-row">
+				<strong>Deshedding Treatment</strong>
+				<span class="price-tag">$15-$40</span>
+			  </span>
+			  <small>Reduces undercoat &amp; shedding including deep conditioning + extra brushing</small>
+			</span>
+		  </span>
+		</label>
+		
+		<label class="checkbox-card">
+		  <input type="checkbox" name="entry.487565551" value="*Nail Care">
+		  <span class="checkbox-card-text">
+			<span class="checkbox-card-info">
+			  <span class="card-header-row">
+				<strong>Nail Care</strong>
+			  </span>
+			  <small>Safe nail trimming and smooth filing</small>
+			</span>
+		  </span>
+		</label>
 
           <label class="checkbox-card">
             <input type="checkbox" name="entry.487565551" value="*Pluck Ears">
             <span class="checkbox-card-text">
-              <span class="checkbox-card-info">
-                <strong>Ear Plucking</strong>
-              </span>
-            </span>
+			<span class="checkbox-card-info">
+			  <span class="card-header-row">
+				<strong>Pluck Ears</strong>
+				<span class="price-tag">$5-$10</span>
+			  </span>
+			  <small></small>
+			</span>
+		  </span>
           </label>
 
           <label class="checkbox-card">
             <input type="checkbox" name="entry.487565551" value="*Brush Teeth">
-            <span class="checkbox-card-text">
-              <span class="checkbox-card-info">
-                <strong>Teeth Brushing</strong>
-              </span>
-              <span class="price-tag">$10</span>
-            </span>
+		  <span class="checkbox-card-text">
+			<span class="checkbox-card-info">
+			  <span class="card-header-row">
+				<strong>Brush Teeth</strong>
+				<span class="price-tag">$10</span>
+			  </span>
+			  <small></small>
+			</span>
+		  </span>
           </label>
 
           <label class="checkbox-card">
             <input type="checkbox" name="entry.487565551" value="*Mouth Wash">
             <span class="checkbox-card-text">
-              <span class="checkbox-card-info">
-                <strong>Mouth Wash</strong>
-              </span>
-            </span>
+			<span class="checkbox-card-info">
+			  <span class="card-header-row">
+				<strong>Mouth Wash</strong>
+				<span class="price-tag">free</span>
+			  </span>
+			  <small>Comes optional with Brush Teeth service</small>
+			</span>
+		  </span>
           </label>
 
         </div>
@@ -663,7 +719,3 @@
 
 </body>
 </html>
-
-
-
-
