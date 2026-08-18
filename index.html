@@ -427,6 +427,12 @@
 	  border-radius: 12px;
 	  white-space: nowrap;
 	}
+	
+	#mouthwash_card {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transition: opacity 0.2s ease;
+}
   </style>
 </head>
 <body>
@@ -517,9 +523,7 @@
       </div>
     </section>
 
-    <!-- Booking Form Section -->
-<!-- Booking Form Section -->
-<section id="book">
+   <section id="book">
   <h2 class="section-title">Request Appointment</h2>
   <div class="booking-form-v2">
     <!-- Updated Form Target -->
@@ -531,7 +535,7 @@
       <!-- Client Info -->
       <div class="form-group">
         <label class="field-label" for="owner_name">Owner's Name</label>
-        <input type="text" id="owner_name" name="entry.216716512" required placeholder="Jane Doe">
+        <input type="text" id="owner_name" name="entry.216716512" required pattern="^[A-Za-z]+(\s+[A-Za-z]+)+$" title="Please enter both a first and last name separated by a space." placeholder="Jane Doe">
       </div>
 
       <div class="form-group">
@@ -553,7 +557,7 @@
       <div class="grid-2col form-group">
         <div class="form-group">
           <label class="field-label" for="weight">Weight (lbs)</label>
-          <input type="number" id="weight" name="entry.992750075" required placeholder="25">
+          <input type="number" id="weight" name="entry.992750075" required step="1" min="1" placeholder="25">
         </div>
 
         <div class="form-group">
@@ -584,107 +588,105 @@
         </div>
       </div>
 
-      <!-- Checkbox Services (All checkboxes match Google Form options exactly) -->
-      <div class="form-group">
-        <label class="field-label">Select Requested Services:</label>
-        <div class="checkbox-group">
-          
-		<label class="checkbox-card">
-		  <input type="checkbox" name="entry.487565551" value="Full Groom">
-		  <span class="checkbox-card-text">
-			<span class="checkbox-card-info">
-			  <span class="card-header-row">
-				<strong>Full Groom</strong>
-				<span class="tag-group">
-				  <span class="extras-tag">🎀 Bow or Bandana</span>
-				</span>
-			  </span>
-			  <small>Complete bath, blow-dry, haircut, style and total pampering, cologne, bow/bandana  </small>
-			</span>
-		  </span>
-		</label>
+      <!-- Checkbox Services -->
+<div class="form-group">
+  <label class="field-label">Select Requested Services: <span style="color: var(--rose-dark, #c25b68);">*</span></label>
+  <div class="checkbox-group" id="services_group">
+    
+    <label class="checkbox-card">
+      <input type="checkbox" name="entry.487565551" value="Full Groom" required onchange="validateServices()">
+      <span class="checkbox-card-text">
+        <span class="checkbox-card-info">
+          <span class="card-header-row">
+            <strong>Full Groom</strong>
+            <span class="tag-group">
+              <span class="extras-tag">🎀 Bow or Bandana</span>
+            </span>
+          </span>
+          <small>Complete bath, blow-dry, haircut, style and total pampering, cologne, bow/bandana</small>
+        </span>
+      </span>
+    </label>
 
-	  <label class="checkbox-card">
-		<input type="checkbox" name="entry.487565551" value="Deep Clean">
-		<span class="checkbox-card-text">
-			<span class="checkbox-card-info">
-			  <span class="card-header-row">
-				<strong>Deep Clean</strong>
-				<span class="tag-group">
-				  <span class="extras-tag">🎀 Bow or Bandana</span>
-				</span>
-			  </span>
-			  <small>Bath &amp; brush, blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads</small>
-			</span>
-		  </span>
-	  </label>
+    <label class="checkbox-card">
+      <input type="checkbox" name="entry.487565551" value="Deep Clean" required onchange="validateServices()">
+      <span class="checkbox-card-text">
+        <span class="checkbox-card-info">
+          <span class="card-header-row">
+            <strong>Deep Clean</strong>
+            <span class="tag-group">
+              <span class="extras-tag">🎀 Bow or Bandana</span>
+            </span>
+          </span>
+          <small>Bath &amp; brush, blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads</small>
+        </span>
+      </span>
+    </label>
 
-		<label class="checkbox-card">
-		  <input type="checkbox" name="entry.487565551" value="Deshedding Treatment">
-		  <span class="checkbox-card-text">
-			<span class="checkbox-card-info">
-			  <span class="card-header-row">
-				<strong>Deshedding Treatment</strong>
-				<span class="price-tag">$15-$40</span>
-			  </span>
-			  <small>Reduces undercoat &amp; shedding including deep conditioning + extra brushing</small>
-			</span>
-		  </span>
-		</label>
-		
-		<label class="checkbox-card">
-		  <input type="checkbox" name="entry.487565551" value="Nail Care">
-		  <span class="checkbox-card-text">
-			<span class="checkbox-card-info">
-			  <span class="card-header-row">
-				<strong>Nail Care</strong>
-			  </span>
-			  <small>Safe nail trimming and smooth filing</small>
-			</span>
-		  </span>
-		</label>
+    <label class="checkbox-card">
+      <input type="checkbox" name="entry.487565551" value="Deshedding Treatment" required onchange="validateServices()">
+      <span class="checkbox-card-text">
+        <span class="checkbox-card-info">
+          <span class="card-header-row">
+            <strong>Deshedding Treatment</strong>
+            <span class="price-tag">$15-$40</span>
+          </span>
+          <small>Reduces undercoat &amp; shedding including deep conditioning + extra brushing</small>
+        </span>
+      </span>
+    </label>
+    
+    <label class="checkbox-card">
+      <input type="checkbox" name="entry.487565551" value="Nail Care" required onchange="validateServices()">
+      <span class="checkbox-card-text">
+        <span class="checkbox-card-info">
+          <span class="card-header-row">
+            <strong>Nail Care</strong>
+          </span>
+          <small>Safe nail trimming and smooth filing</small>
+        </span>
+      </span>
+    </label>
 
-          <label class="checkbox-card">
-            <input type="checkbox" name="entry.487565551" value="Pluck Ears">
-            <span class="checkbox-card-text">
-			<span class="checkbox-card-info">
-			  <span class="card-header-row">
-				<strong>Pluck Ears</strong>
-				<span class="price-tag">$5-$10</span>
-			  </span>
-			  <small></small>
-			</span>
-		  </span>
-          </label>
+    <label class="checkbox-card">
+      <input type="checkbox" name="entry.487565551" value="Pluck Ears" required onchange="validateServices()">
+      <span class="checkbox-card-text">
+        <span class="checkbox-card-info">
+          <span class="card-header-row">
+            <strong>Pluck Ears</strong>
+            <span class="price-tag">$5-$10</span>
+          </span>
+        </span>
+      </span>
+    </label>
 
-          <label class="checkbox-card">
-            <input type="checkbox" name="entry.487565551" value="Brush Teeth">
-		  <span class="checkbox-card-text">
-			<span class="checkbox-card-info">
-			  <span class="card-header-row">
-				<strong>Brush Teeth</strong>
-				<span class="price-tag">$10</span>
-			  </span>
-			  <small></small>
-			</span>
-		  </span>
-          </label>
+    <label class="checkbox-card">
+      <input type="checkbox" id="brushteeth_checkbox" name="entry.487565551" value="Brush Teeth" required onchange="toggleMouthWash(this); validateServices();">
+      <span class="checkbox-card-text">
+        <span class="checkbox-card-info">
+          <span class="card-header-row">
+            <strong>Brush Teeth</strong>
+            <span class="price-tag">$10</span>
+          </span>
+        </span>
+      </span>
+    </label>
 
-          <label class="checkbox-card">
-            <input type="checkbox" name="entry.487565551" value="Mouth Wash">
-            <span class="checkbox-card-text">
-			<span class="checkbox-card-info">
-			  <span class="card-header-row">
-				<strong>Mouth Wash</strong>
-				<span class="price-tag">free</span>
-			  </span>
-			  <small>Comes optional with Brush Teeth service</small>
-			</span>
-		  </span>
-          </label>
+    <label class="checkbox-card" id="mouthwash_card">
+      <input type="checkbox" id="mouthwash_checkbox" name="entry.487565551" value="Mouth Wash" disabled onchange="validateServices()">
+      <span class="checkbox-card-text">
+        <span class="checkbox-card-info">
+          <span class="card-header-row">
+            <strong>Mouth Wash</strong>
+            <span class="price-tag">free</span>
+          </span>
+          <small>Comes optional with Brush Teeth service</small>
+        </span>
+      </span>
+    </label>
 
-        </div>
-      </div>
+  </div>
+</div>
 
       <!-- Grooming History & Questions -->
       <div class="form-group">
@@ -704,6 +706,36 @@
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Appointment request submitted successfully!'); }"></iframe>
   </div>
 </section>
+
+<script>
+function toggleMouthWash(brushTeethCheckbox) {
+  const mouthWashInput = document.getElementById('mouthwash_checkbox');
+  const mouthWashCard = document.getElementById('mouthwash_card');
+
+  if (brushTeethCheckbox.checked) {
+    mouthWashInput.disabled = false;
+    mouthWashCard.style.opacity = '1';
+    mouthWashCard.style.cursor = 'pointer';
+  } else {
+    mouthWashInput.disabled = true;
+    mouthWashInput.checked = false; // Uncheck automatically if Brush Teeth is unselected
+    mouthWashCard.style.opacity = '0.5';
+    mouthWashCard.style.cursor = 'not-allowed';
+  }
+}
+
+function validateServices() {
+  const checkboxes = document.querySelectorAll('input[name="entry.487565551"]:not([disabled])');
+  const hasChecked = Array.from(checkboxes).some(cb => cb.checked);
+
+  checkboxes.forEach(cb => {
+    cb.required = !hasChecked;
+  });
+}
+
+// Run once on load to ensure initial state is correct
+document.addEventListener('DOMContentLoaded', validateServices);
+</script>
     
     <!-- Footer -->
     <footer>
