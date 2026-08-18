@@ -489,9 +489,9 @@
   <div class="booking-form-v2">
     <!-- Updated Form Target -->
     <form action="https://docs.google.com/forms/d/e/1FAIpQLSfCg7Fj1WBhK-FEwPwWaIoUaRYxXnk6jIdz4cJVajKPU4-73Q/formResponse" 
-  method="POST" 
-  target="hidden_iframe" 
-  onsubmit="handleFormSubmit(event)">
+          method="POST" 
+          target="hidden_iframe" 
+          onsubmit="handleFormSubmit(event)">
       
       <!-- Client Info -->
       <div class="form-group">
@@ -557,52 +557,67 @@
           <label class="checkbox-card">
             <input type="checkbox" name="entry.487565551" value="*Full Groom">
             <span class="checkbox-card-text">
-              <strong>Full Grooming</strong><br>
-              <small>Includes bath, nail care, haircut &amp; style, bow/bandanna and cologne.</small>
+              <span class="checkbox-card-info">
+                <strong>Full Grooming</strong>
+                <small>Includes bath, nail care, haircut &amp; style, bow/bandanna and cologne.</small>
+              </span>
             </span>
           </label>
 
           <label class="checkbox-card">
             <input type="checkbox" name="entry.487565551" value="*Bath and *Brush">
             <span class="checkbox-card-text">
-              <strong>Bath &amp; Brush Only</strong>
+              <span class="checkbox-card-info">
+                <strong>Bath &amp; Brush Only</strong>
+              </span>
             </span>
           </label>
 
           <label class="checkbox-card">
             <input type="checkbox" name="entry.487565551" value="*Deep Clean">
             <span class="checkbox-card-text">
-              <strong>Deep Clean</strong><br>
-              <small>Blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads.</small>
+              <span class="checkbox-card-info">
+                <strong>Deep Clean</strong>
+                <small>Blow-dry, thorough brush out, optional: trimming around eyes, sanitary, feet, paw pads.</small>
+              </span>
             </span>
           </label>
 
           <label class="checkbox-card">
             <input type="checkbox" name="entry.487565551" value="*Deshedding Treatment">
             <span class="checkbox-card-text">
-              <strong>Deshedding Treatment</strong><br>
-              <small>Reduces undercoat &amp; shedding including deep conditioning + extra brushing.</small>
+              <span class="checkbox-card-info">
+                <strong>Deshedding Treatment</strong>
+                <small>Reduces undercoat &amp; shedding including deep conditioning + extra brushing.</small>
+              </span>
             </span>
           </label>
 
           <label class="checkbox-card">
             <input type="checkbox" name="entry.487565551" value="*Pluck Ears">
             <span class="checkbox-card-text">
-              <strong>Ear Plucking</strong>
+              <span class="checkbox-card-info">
+                <strong>Ear Plucking</strong>
+              </span>
             </span>
           </label>
 
           <label class="checkbox-card">
             <input type="checkbox" name="entry.487565551" value="*Brush Teeth">
             <span class="checkbox-card-text">
-              <strong>Teeth Brushing</strong> ($10)
+              <span class="checkbox-card-info">
+                <strong>Teeth Brushing</strong>
+              </span>
+              <span class="price-tag">$10</span>
             </span>
           </label>
 
           <label class="checkbox-card">
             <input type="checkbox" name="entry.487565551" value="*Mouth Wash">
             <span class="checkbox-card-text">
-              <strong>Mouth Wash</strong>
+              <span class="checkbox-card-info">
+                <strong>Mouth Wash</strong>
+              </span>
             </span>
           </label>
 
@@ -627,22 +642,6 @@
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Appointment request submitted successfully!'); }"></iframe>
   </div>
 </section>
-    
-<script>
-  var submitted = false;
-
-  function handleFormSubmit(event) {
-    // Break standard HTML date picker (YYYY-MM-DD) into Google's required year, month, and day hidden fields
-    const dateVal = document.getElementById('pref_date').value;
-    if (dateVal) {
-      const parts = dateVal.split('-');
-      document.getElementById('date_year').value = parts[0];
-      document.getElementById('date_month').value = parts[1];
-      document.getElementById('date_day').value = parts[2];
-    }
-    submitted = true;
-  }
-</script>
     
     <!-- Footer -->
     <footer>
