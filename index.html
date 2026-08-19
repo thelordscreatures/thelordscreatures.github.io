@@ -216,6 +216,35 @@
       text-align: right;
     }
 
+    /* Thank You Success Banner */
+    .thank-you-banner {
+      display: none;
+      max-width: 600px;
+      margin: 0 auto 20px auto;
+      background: var(--sage-light);
+      border: 2px solid var(--sage-border);
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .thank-you-banner h3 {
+      color: var(--sage);
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .thank-you-banner p {
+      color: var(--dark-text);
+      font-size: 1.05rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* Booking Form */
     .booking-form-v2 {
       max-width: 600px;
@@ -516,54 +545,53 @@
     .contact-icon {
       margin-right: 6px;
     }
-	
-	
-	.service-cities-container {
-  margin: 20px auto 10px;
-  max-width: 800px;
-  text-align: center;
-}
 
-.service-cities-title {
-  font-weight: 700;
-  color: var(--rose);
-  margin-bottom: 12px;
-  font-size: 0.95rem;
-}
+    .service-cities-container {
+      margin: 20px auto 10px;
+      max-width: 800px;
+      text-align: center;
+    }
 
-.city-chips {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px 8px;
-}
+    .service-cities-title {
+      font-weight: 700;
+      color: var(--rose);
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
 
-.chip {
-  background-color: var(--sage-light);
-  color: var(--sage);
-  border: 1px solid var(--sage-border);
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 16px;
-  white-space: nowrap;
-  display: inline-block;
-  transition: all 0.2s ease;
-}
+    .city-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 8px;
+    }
 
-.chip:hover {
-  background-color: var(--light-rose);
-  color: var(--rose-dark);
-  border-color: var(--border-color);
-}
+    .chip {
+      background-color: var(--sage-light);
+      color: var(--sage);
+      border: 1px solid var(--sage-border);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 16px;
+      white-space: nowrap;
+      display: inline-block;
+      transition: all 0.2s ease;
+    }
 
-.heart-icon {
-  color: var(--rose, #d98880);
-  margin-right: 6px;
-  transform: rotate(-15deg);
-  display: inline-block;
-  font-size: 0.85rem;
-}
+    .chip:hover {
+      background-color: var(--light-rose);
+      color: var(--rose-dark);
+      border-color: var(--border-color);
+    }
+
+    .heart-icon {
+      color: var(--rose, #d98880);
+      margin-right: 6px;
+      transform: rotate(-15deg);
+      display: inline-block;
+      font-size: 0.85rem;
+    }
   </style>
 </head>
 <body>
@@ -647,8 +675,15 @@
 
     <section id="book">
       <h2 class="section-title">Request Appointment</h2>
+
+      <!-- Inline Thank You Message -->
+      <div id="thank_you_message" class="thank-you-banner">
+        <h3>Thank You for Submitting! 🐾</h3>
+        <p>Your appointment request has been received. Nevena will be in touch with you shortly to confirm your booking.</p>
+      </div>
+
       <div class="booking-form-v2">
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfCg7Fj1WBhK-FEwPwWaIoUaRYxXnk6jIdz4cJVajKPU4-73Q/formResponse" method="POST" target="hidden_iframe" onsubmit="handleFormSubmit(event)">
+        <form id="grooming_form" action="https://docs.google.com/forms/d/1ZPe5827EjGT5T6stWfZRH1ABsrBtk7qcoLQ0SMJw34Y/formResponse" method="POST" target="hidden_iframe" onsubmit="handleFormSubmit(event)">
           
           <!-- Client Info -->
           <div class="form-group">
@@ -755,7 +790,7 @@
                   </label>
 
                   <label class="checkbox-card sub-option sub-disabled" id="foot_card">
-                    <input type="checkbox" id="foot_checkbox" name="entry.487565551" value="Paw Pad & Foot Tidy" disabled onchange="validateServices()">
+                    <input type="checkbox" id="foot_checkbox" name="entry.487565551" value="Paw pad & foot tidy" disabled onchange="validateServices()">
                     <span class="sub-label">Paw pad &amp; foot tidy</span>
                   </label>
                 </div>
@@ -918,7 +953,21 @@
 
     document.getElementById('hidden_iframe').addEventListener('load', function() {
       if (submitted) {
-        alert('Appointment request submitted successfully!');
+        const form = document.getElementById('grooming_form');
+        
+        // 1. Reset all form inputs
+        form.reset();
+
+        // 2. Disable dependent sub-checkboxes back to initial state
+        toggleBathTidySubOptions({ checked: false });
+        toggleMouthWash({ checked: false });
+        validateServices();
+
+        // 3. Show thank you message and scroll smoothly into view
+        const thankYouBox = document.getElementById('thank_you_message');
+        thankYouBox.style.display = 'block';
+        thankYouBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
         submitted = false;
       }
     });
@@ -927,31 +976,31 @@
     </script>
 
     <footer>
-<div class="trust-badges">
-  <span class="trust-item"><i class="fa-solid fa-heart heart-icon"></i>Professional </span>
-  <span class="trust-item"><i class="fa-solid fa-heart heart-icon"></i>Compassionate </span>
-  <span class="trust-item"><i class="fa-solid fa-heart heart-icon"></i>Trusted </span>
-</div>
-<div class="service-cities-container">
-  <p class="service-cities-title">
-    <i class="fa-solid fa-location-dot"></i> Proudly Servicing South Orange County
-  </p>
-  <div class="city-chips">
-    <span class="chip">Laguna Beach</span>
-    <span class="chip">Laguna Woods</span>
-    <span class="chip">Laguna Hills</span>
-    <span class="chip">Aliso Viejo</span>
-    <span class="chip">Laguna Niguel</span>
-    <span class="chip">Lake Forest</span>
-    <span class="chip">Mission Viejo</span>
-    <span class="chip">Rancho Santa Margarita</span>
-    <span class="chip">Ladera Ranch</span>
-    <span class="chip">Rancho Mission Viejo</span>
-    <span class="chip">San Juan Capistrano</span>
-    <span class="chip">Dana Point</span>
-    <span class="chip">San Clemente</span>
-  </div>
-</div>
+      <div class="trust-badges">
+        <span class="trust-item"><i class="fa-solid fa-heart heart-icon"></i>Professional </span>
+        <span class="trust-item"><i class="fa-solid fa-heart heart-icon"></i>Compassionate </span>
+        <span class="trust-item"><i class="fa-solid fa-heart heart-icon"></i>Trusted </span>
+      </div>
+      <div class="service-cities-container">
+        <p class="service-cities-title">
+          <i class="fa-solid fa-location-dot"></i> Proudly Servicing South Orange County
+        </p>
+        <div class="city-chips">
+          <span class="chip">Laguna Beach</span>
+          <span class="chip">Laguna Woods</span>
+          <span class="chip">Laguna Hills</span>
+          <span class="chip">Aliso Viejo</span>
+          <span class="chip">Laguna Niguel</span>
+          <span class="chip">Lake Forest</span>
+          <span class="chip">Mission Viejo</span>
+          <span class="chip">Rancho Santa Margarita</span>
+          <span class="chip">Ladera Ranch</span>
+          <span class="chip">Rancho Mission Viejo</span>
+          <span class="chip">San Juan Capistrano</span>
+          <span class="chip">Dana Point</span>
+          <span class="chip">San Clemente</span>
+        </div>
+      </div>
       <p>
         <span class="groomer-name">
           <i class="fa-solid fa-scissors groomer-icon"></i> Nevena
